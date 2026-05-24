@@ -1,0 +1,270 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Payment - Chor Police</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#eedcff",
+                      "on-secondary": "#5d1900",
+                      "outline-variant": "#5d3f40",
+                      "on-tertiary-fixed": "#3b0900",
+                      "on-background": "#eedcff",
+                      "error-container": "#93000a",
+                      "surface-container-low": "#231437",
+                      "tertiary": "#ffb5a0",
+                      "primary-container": "#ff5167",
+                      "on-error": "#690005",
+                      "surface-container": "#27183c",
+                      "tertiary-fixed-dim": "#ffb5a0",
+                      "surface": "#1b0b2f",
+                      "surface-container-high": "#322247",
+                      "inverse-primary": "#be0036",
+                      "surface-bright": "#423257",
+                      "primary": "#ffb3b5",
+                      "on-primary": "#680019",
+                      "on-primary-fixed": "#40000c",
+                      "inverse-on-surface": "#39294e",
+                      "secondary-fixed": "#ffdbd0",
+                      "on-tertiary": "#601400",
+                      "primary-fixed": "#ffdada",
+                      "surface-tint": "#ffb3b5",
+                      "on-secondary-container": "#ffddd2",
+                      "secondary-container": "#b83900",
+                      "on-tertiary-container": "#541100",
+                      "on-tertiary-fixed-variant": "#872000",
+                      "on-primary-container": "#5b0015",
+                      "surface-container-lowest": "#150529",
+                      "surface-variant": "#3d2d52",
+                      "error": "#ffb4ab",
+                      "on-secondary-fixed-variant": "#832600",
+                      "surface-dim": "#1b0b2f",
+                      "on-secondary-fixed": "#390c00",
+                      "tertiary-container": "#ff5625",
+                      "background": "#1b0b2f",
+                      "secondary": "#ffb59d",
+                      "secondary-fixed-dim": "#ffb59d",
+                      "on-surface-variant": "#e6bcbd",
+                      "primary-fixed-dim": "#ffb3b5",
+                      "surface-container-highest": "#3d2d52",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed": "#ffdbd1",
+                      "on-surface": "#eedcff",
+                      "outline": "#ad8888",
+                      "on-primary-fixed-variant": "#920027"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "32px",
+                      "gutter": "16px",
+                      "xl": "64px",
+                      "md": "24px",
+                      "base": "8px",
+                      "xs": "4px",
+                      "margin-mobile": "16px",
+                      "lg": "40px",
+                      "sm": "12px"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "DM Sans"
+                      ],
+                      "button": [
+                              "DM Sans"
+                      ],
+                      "body-lg": [
+                              "DM Sans"
+                      ],
+                      "label-mono": [
+                              "Courier Prime"
+                      ],
+                      "headline-md": [
+                              "DM Sans"
+                      ],
+                      "display-lg-mobile": [
+                              "DM Sans"
+                      ],
+                      "display-lg": [
+                              "DM Sans"
+                      ]
+              },
+              "fontSize": {
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "button": [
+                              "16px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-mono": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #1A0A2E; /* Close to surface, using specific hex from prompt */
+            width: 390px;
+            margin: 0 auto;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Custom scrollbar to match theme */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-variant');
+            border-radius: theme('borderRadius.full');
+        }
+
+        /* Glitch effect for button */
+        .glitch-hover:hover {
+            animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+        }
+        @keyframes glitch-skew {
+            0% { transform: skew(0deg); }
+            20% { transform: skew(-1deg); }
+            40% { transform: skew(1deg); }
+            60% { transform: skew(-0.5deg); }
+            80% { transform: skew(0.5deg); }
+            100% { transform: skew(0deg); }
+        }
+    </style>
+</head>
+<body class="text-on-background relative flex flex-col font-body-sm">
+<!-- Header (Transactional: No global nav) -->
+<header class="flex items-center px-margin-mobile h-[72px] bg-[#2D1554] shadow-[0_4px_20px_rgba(0,0,0,0.4)] relative z-20 shrink-0 border-b border-white/10">
+<button aria-label="Go Back" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors mr-sm shrink-0">
+<span class="material-symbols-outlined text-on-surface" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<div class="flex flex-col justify-center">
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Operation</h1>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest opacity-80">authorize now</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin-mobile py-md flex flex-col gap-md pb-[120px] relative z-10 overflow-y-auto">
+<!-- Payment Methods Section -->
+<section class="flex flex-col gap-sm">
+<h2 class="text-[10px] font-[800] text-white/50 uppercase tracking-[0.1em] font-body-sm ml-xs">Payment Method</h2>
+<div class="flex flex-col gap-base">
+<!-- Cash Option -->
+<label class="group relative flex items-center justify-between p-sm rounded-xl bg-surface-container/40 backdrop-blur-md border border-white/10 cursor-pointer overflow-hidden transition-all hover:bg-surface-container/60">
+<div class="flex items-center gap-sm relative z-10">
+<div class="w-10 h-10 rounded-lg bg-surface-variant/50 border border-white/5 flex items-center justify-center">
+<span class="text-[20px]">💵</span>
+</div>
+<span class="font-button text-button text-on-surface">Cash</span>
+</div>
+<div class="relative z-10 w-5 h-5 rounded-full border border-white/30 flex items-center justify-center group-hover:border-primary/50 transition-colors">
+<!-- Unselected -->
+</div>
+<input class="sr-only" name="payment_method" type="radio" value="cash">
+</label>
+<!-- UPI Option (Selected) -->
+<label class="group relative flex items-center justify-between p-sm rounded-xl bg-[rgba(255,255,255,0.12)] backdrop-blur-md border-[2px] border-primary-container shadow-[0_0_15px_rgba(255,81,103,0.15)] cursor-pointer overflow-hidden transition-all scale-[1.02]">
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container/10 to-transparent pointer-events-none"></div>
+<div class="flex items-center gap-sm relative z-10">
+<div class="w-10 h-10 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center shadow-inner">
+<span class="text-[20px]">📱</span>
+</div>
+<span class="font-button text-button text-on-surface">UPI</span>
+</div>
+<div class="relative z-10 w-5 h-5 rounded-full border-2 border-primary-container flex items-center justify-center bg-surface">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-[0_0_8px_rgba(255,81,103,0.8)]"></div>
+</div>
+<input checked="" class="sr-only" name="payment_method" type="radio" value="upi">
+</label>
+<!-- Card Option -->
+<label class="group relative flex items-center justify-between p-sm rounded-xl bg-surface-container/40 backdrop-blur-md border border-white/10 cursor-pointer overflow-hidden transition-all hover:bg-surface-container/60">
+<div class="flex items-center gap-sm relative z-10">
+<div class="w-10 h-10 rounded-lg bg-surface-variant/50 border border-white/5 flex items-center justify-center">
+<span class="text-[20px]">💳</span>
+</div>
+<span class="font-button text-button text-on-surface">Card</span>
+</div>
+<div class="relative z-10 w-5 h-5 rounded-full border border-white/30 flex items-center justify-center group-hover:border-primary/50 transition-colors">
+<!-- Unselected -->
+</div>
+<input class="sr-only" name="payment_method" type="radio" value="card">
+</label>
+</div>
+</section>
+</main>
+<!-- Bottom Sticky CTA Action Area (Replacing BottomNav for transactional screen) -->
+<div class="fixed bottom-0 left-0 w-full px-margin-mobile py-md bg-surface/90 backdrop-blur-xl border-t border-white/10 z-50 flex flex-col gap-sm shadow-[0_-10px_30px_rgba(0,0,0,0.5)] max-w-[390px] mx-auto right-0">
+<!-- Total Row -->
+<div class="flex justify-between items-end px-xs">
+<span class="font-body-lg text-body-lg text-white/70">Total</span>
+<span class="font-headline-md text-[20px] font-[900] text-primary tracking-tight">₹35</span>
+</div>
+<!-- Confirm Button -->
+<button class="h-[56px] w-full rounded-xl bg-primary-container text-white font-button text-button flex items-center justify-center gap-sm shadow-[inset_0_2px_4px_rgba(255,255,255,0.3),0_4px_15px_rgba(255,81,103,0.4)] transition-all active:scale-95 active:shadow-none hover:bg-[#ff6b7f] uppercase tracking-wide glitch-hover">
+<span class="">CONFIRM OPERATION</span>
+<span class="material-symbols-outlined font-bold text-[20px]">arrow_forward</span>
+</button>
+</div>
+
+
+</body></html>

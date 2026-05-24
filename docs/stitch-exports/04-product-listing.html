@@ -1,0 +1,250 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Chor Police - Ice Cream Listing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700;800;900&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#eedcff",
+                        "on-secondary": "#5d1900",
+                        "outline-variant": "#5d3f40",
+                        "on-tertiary-fixed": "#3b0900",
+                        "on-background": "#eedcff",
+                        "error-container": "#93000a",
+                        "surface-container-low": "#231437",
+                        "tertiary": "#ffb5a0",
+                        "primary-container": "#ff5167",
+                        "on-error": "#690005",
+                        "surface-container": "#27183c",
+                        "tertiary-fixed-dim": "#ffb5a0",
+                        "surface": "#1b0b2f",
+                        "surface-container-high": "#322247",
+                        "inverse-primary": "#be0036",
+                        "surface-bright": "#423257",
+                        "primary": "#ffb3b5",
+                        "on-primary": "#680019",
+                        "on-primary-fixed": "#40000c",
+                        "inverse-on-surface": "#39294e",
+                        "secondary-fixed": "#ffdbd0",
+                        "on-tertiary": "#601400",
+                        "primary-fixed": "#ffdada",
+                        "surface-tint": "#ffb3b5",
+                        "on-secondary-container": "#ffddd2",
+                        "secondary-container": "#b83900",
+                        "on-tertiary-container": "#541100",
+                        "on-tertiary-fixed-variant": "#872000",
+                        "on-primary-container": "#5b0015",
+                        "surface-container-lowest": "#150529",
+                        "surface-variant": "#3d2d52",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#832600",
+                        "surface-dim": "#1b0b2f",
+                        "on-secondary-fixed": "#390c00",
+                        "tertiary-container": "#ff5625",
+                        "background": "#1b0b2f",
+                        "secondary": "#ffb59d",
+                        "secondary-fixed-dim": "#ffb59d",
+                        "on-surface-variant": "#e6bcbd",
+                        "primary-fixed-dim": "#ffb3b5",
+                        "surface-container-highest": "#3d2d52",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbd1",
+                        "on-surface": "#eedcff",
+                        "outline": "#ad8888",
+                        "on-primary-fixed-variant": "#920027"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "gutter": "16px",
+                        "xl": "64px",
+                        "md": "24px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "margin-mobile": "16px",
+                        "lg": "40px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["DM Sans"],
+                        "button": ["DM Sans"],
+                        "body-lg": ["DM Sans"],
+                        "label-mono": ["Courier Prime"],
+                        "headline-md": ["DM Sans"],
+                        "display-lg-mobile": ["DM Sans"],
+                        "display-lg": ["DM Sans"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "button": ["16px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-mono": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "1.1", "fontWeight": "900" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #1A0A2E; /* Close to surface/background */
+        }
+        /* Custom glassmorphism classes */
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .text-hot-pink {
+            color: #FF2D55;
+        }
+        .bg-hot-pink {
+            background-color: #FF2D55;
+        }
+        .bg-hot-pink-transparent {
+            background-color: rgba(255, 45, 85, 0.15);
+        }
+        
+        /* Typography overrides based on prompt specifics */
+        .header-title {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 800;
+            font-size: 16px;
+        }
+        .urgency-text {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 800;
+            font-size: 13px;
+        }
+        .product-name {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+        }
+        .product-brand {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .product-price {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 900;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased min-h-screen pb-20 max-w-[390px] mx-auto relative overflow-x-hidden">
+<!-- Top Header -->
+<header class="bg-[#2D1554] px-margin-mobile h-14 flex items-center justify-between sticky top-0 z-40 border-b border-white/10">
+<button aria-label="Go back" class="text-white hover:text-primary transition-colors flex items-center justify-center w-10 h-10 -ml-2">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="header-title text-white flex-1 text-center pr-8">Ice Cream</h1>
+</header>
+<!-- Urgency Bar -->
+<div class="bg-hot-pink-transparent p-3 flex items-center justify-center gap-2 border-b border-[#FF2D55]/30">
+<span class="text-xl">🚨</span>
+<p class="urgency-text text-white tracking-wide">Catch it before it escapes</p>
+</div>
+<!-- Main Content Grid -->
+<main class="p-margin-mobile pt-gutter">
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Product Card 1 -->
+<div class="glass-panel rounded-xl p-4 flex flex-col relative group overflow-hidden hover:bg-white/10 transition-colors">
+<!-- Image/Emoji Container -->
+<div class="aspect-square bg-surface-container-high/50 rounded-lg flex items-center justify-center mb-3 text-5xl">
+                    🍦
+                </div>
+<div class="flex-1 flex flex-col">
+<h2 class="product-name text-white mb-1 leading-tight">Kool Kone</h2>
+<p class="product-brand mb-2">Amul</p>
+<div class="mt-auto flex items-end justify-between pt-2">
+<span class="product-price text-white">₹35</span>
+<button class="bg-hot-pink text-white font-button text-xs py-1.5 px-3 rounded shadow-[0_0_10px_rgba(255,45,85,0.4)] active:scale-95 transition-transform">
+                            ADD
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="glass-panel rounded-xl p-4 flex flex-col relative group overflow-hidden hover:bg-white/10 transition-colors">
+<!-- Hot Badge -->
+<div class="absolute top-0 right-0 bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-0.5 rounded-bl-lg rounded-tr-xl z-10">
+                    HOT DEAL
+                </div>
+<!-- Image/Emoji Container -->
+<div class="aspect-square bg-surface-container-high/50 rounded-lg flex items-center justify-center mb-3 text-5xl">
+                    🍫
+                </div>
+<div class="flex-1 flex flex-col">
+<h2 class="product-name text-white mb-1 leading-tight">Magnum Gold</h2>
+<p class="product-brand mb-2">Kwality Wall's</p>
+<div class="mt-auto flex items-end justify-between pt-2">
+<span class="product-price text-white">₹120</span>
+<button class="bg-hot-pink text-white font-button text-xs py-1.5 px-3 rounded shadow-[0_0_10px_rgba(255,45,85,0.4)] active:scale-95 transition-transform">
+                            ADD
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="glass-panel rounded-xl p-4 flex flex-col relative group overflow-hidden hover:bg-white/10 transition-colors">
+<!-- Image/Emoji Container -->
+<div class="aspect-square bg-surface-container-high/50 rounded-lg flex items-center justify-center mb-3 text-5xl">
+                    🍧
+                </div>
+<div class="flex-1 flex flex-col">
+<h2 class="product-name text-white mb-1 leading-tight">Cornetto Classic</h2>
+<p class="product-brand mb-2">Kwality Wall's</p>
+<div class="mt-auto flex items-end justify-between pt-2">
+<span class="product-price text-white">₹60</span>
+<button class="bg-hot-pink text-white font-button text-xs py-1.5 px-3 rounded shadow-[0_0_10px_rgba(255,45,85,0.4)] active:scale-95 transition-transform">
+                            ADD
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="glass-panel rounded-xl p-4 flex flex-col relative group overflow-hidden hover:bg-white/10 transition-colors">
+<!-- Image/Emoji Container -->
+<div class="aspect-square bg-surface-container-high/50 rounded-lg flex items-center justify-center mb-3 text-5xl">
+                    🍨
+                </div>
+<div class="flex-1 flex flex-col">
+<h2 class="product-name text-white mb-1 leading-tight">Choco Bar</h2>
+<p class="product-brand mb-2">Mother Dairy</p>
+<div class="mt-auto flex items-end justify-between pt-2">
+<span class="product-price text-white">₹25</span>
+<button class="bg-hot-pink text-white font-button text-xs py-1.5 px-3 rounded shadow-[0_0_10px_rgba(255,45,85,0.4)] active:scale-95 transition-transform">
+                            ADD
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- End of List Indicator -->
+<div class="mt-8 mb-4 flex justify-center items-center opacity-50">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="local_police">local_police</span>
+<p class="font-label-mono text-label-mono text-center">END OF EVIDENCE</p>
+<span class="material-symbols-outlined text-sm ml-2" data-icon="local_police">local_police</span>
+</div>
+</main>
+<!-- Suppress Navigation Shells for this screen as it's a specific product listing (linear/task-focused relative to global nav) -->
+
+
+</body></html>

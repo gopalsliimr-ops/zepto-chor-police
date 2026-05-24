@@ -1,0 +1,229 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Chor Police - Amul Kool Kone</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#eedcff",
+                      "on-secondary": "#5d1900",
+                      "outline-variant": "#5d3f40",
+                      "on-tertiary-fixed": "#3b0900",
+                      "on-background": "#eedcff",
+                      "error-container": "#93000a",
+                      "surface-container-low": "#231437",
+                      "tertiary": "#ffb5a0",
+                      "primary-container": "#ff5167",
+                      "on-error": "#690005",
+                      "surface-container": "#27183c",
+                      "tertiary-fixed-dim": "#ffb5a0",
+                      "surface": "#1b0b2f",
+                      "surface-container-high": "#322247",
+                      "inverse-primary": "#be0036",
+                      "surface-bright": "#423257",
+                      "primary": "#ffb3b5",
+                      "on-primary": "#680019",
+                      "on-primary-fixed": "#40000c",
+                      "inverse-on-surface": "#39294e",
+                      "secondary-fixed": "#ffdbd0",
+                      "on-tertiary": "#601400",
+                      "primary-fixed": "#ffdada",
+                      "surface-tint": "#ffb3b5",
+                      "on-secondary-container": "#ffddd2",
+                      "secondary-container": "#b83900",
+                      "on-tertiary-container": "#541100",
+                      "on-tertiary-fixed-variant": "#872000",
+                      "on-primary-container": "#5b0015",
+                      "surface-container-lowest": "#150529",
+                      "surface-variant": "#3d2d52",
+                      "error": "#ffb4ab",
+                      "on-secondary-fixed-variant": "#832600",
+                      "surface-dim": "#1b0b2f",
+                      "on-secondary-fixed": "#390c00",
+                      "tertiary-container": "#ff5625",
+                      "background": "#1b0b2f",
+                      "secondary": "#ffb59d",
+                      "secondary-fixed-dim": "#ffb59d",
+                      "on-surface-variant": "#e6bcbd",
+                      "primary-fixed-dim": "#ffb3b5",
+                      "surface-container-highest": "#3d2d52",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed": "#ffdbd1",
+                      "on-surface": "#eedcff",
+                      "outline": "#ad8888",
+                      "on-primary-fixed-variant": "#920027"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "32px",
+                      "gutter": "16px",
+                      "xl": "64px",
+                      "md": "24px",
+                      "base": "8px",
+                      "xs": "4px",
+                      "margin-mobile": "16px",
+                      "lg": "40px",
+                      "sm": "12px"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "DM Sans"
+                      ],
+                      "button": [
+                              "DM Sans"
+                      ],
+                      "body-lg": [
+                              "DM Sans"
+                      ],
+                      "label-mono": [
+                              "Courier Prime"
+                      ],
+                      "headline-md": [
+                              "DM Sans"
+                      ],
+                      "display-lg-mobile": [
+                              "DM Sans"
+                      ],
+                      "display-lg": [
+                              "DM Sans"
+                      ]
+              },
+              "fontSize": {
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "button": [
+                              "16px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-mono": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface font-body-sm min-h-screen flex flex-col items-center justify-center overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Mobile Container (390px wide) -->
+<main class="w-[390px] min-h-[844px] bg-[#1A0A2E] relative flex flex-col shadow-2xl rounded-[40px] overflow-hidden border-[8px] border-surface-container-highest">
+<!-- Header -->
+<header class="bg-[#2D1554] px-margin-mobile h-16 flex items-center shrink-0 shadow-md z-10 sticky top-0">
+<button aria-label="Go back" class="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 transition-colors active:scale-95 duration-100 backdrop-blur-md border border-white/10">
+<span class="material-symbols-outlined text-on-surface text-xl">arrow_back</span>
+</button>
+</header>
+<!-- Content Area -->
+<div class="flex-1 overflow-y-auto pb-32">
+<!-- Hero / Product Image Section -->
+<section class="relative w-full h-[320px] bg-gradient-to-b from-surface-container-high/50 to-transparent flex flex-col items-center justify-center p-gutter mb-6 overflow-hidden">
+<!-- Decorative Blur -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-primary-container/20 rounded-full blur-[60px] pointer-events-none"></div>
+<div class="text-[80px] drop-shadow-[0_20px_30px_rgba(255,81,103,0.3)] z-10 animate-[bounce_3s_ease-in-out_infinite]">
+                    🍦
+                </div>
+<!-- Status Chip -->
+<div class="absolute top-4 right-4 bg-surface-container/90 backdrop-blur-md border border-white/20 rounded-full px-3 py-1 flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,81,103,0.2)]">
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_#ff5167]"></div>
+<span class="font-label-mono text-label-mono text-on-surface uppercase opacity-90">Hot Item</span>
+</div>
+</section>
+<!-- Product Details -->
+<section class="px-margin-mobile flex flex-col gap-4">
+<div class="flex flex-col gap-1">
+<h2 class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest opacity-70">Amul</h2>
+<div class="flex justify-between items-start gap-4">
+<h1 class="font-headline-md text-headline-md text-on-surface leading-tight">Amul Kool Kone</h1>
+<p class="font-display-lg-mobile text-[28px] text-primary-container drop-shadow-[0_0_10px_rgba(255,81,103,0.3)]">₹35</p>
+</div>
+</div>
+<!-- Craving Intensity Card -->
+<div class="mt-4 p-5 rounded-2xl bg-[rgba(255,255,255,0.08)] backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)] flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-md text-[10px] text-white/50 uppercase tracking-widest">Craving Intensity</h3>
+<span class="font-label-mono text-label-mono text-primary font-bold">87%</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden shadow-inner">
+<div class="h-full rounded-full bg-gradient-to-r from-[#FF6B35] to-[#FF2D55] shadow-[0_0_10px_#FF2D55] w-[87%] relative">
+<!-- Shimmer effect -->
+<div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"></div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic font-light opacity-90 mt-1">"Yeh craving zyada der nahi rukegi."</p>
+</div>
+</section>
+</div>
+<!-- Sticky Bottom Action Bar -->
+<div class="absolute bottom-0 left-0 w-full bg-surface-container/90 backdrop-blur-xl border-t border-white/10 p-margin-mobile shadow-[0_-10px_40px_rgba(0,0,0,0.5)] z-20 flex flex-col gap-3">
+<div class="flex items-center justify-center gap-2 text-on-surface-variant/80">
+<span class="material-symbols-outlined text-[16px]">electric_moped</span>
+<span class="font-label-mono text-label-mono tracking-wide">Delivers in ~10 min</span>
+</div>
+<button class="w-full h-14 bg-primary-container text-white font-button text-button rounded-xl uppercase flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,81,103,0.4),inset_0_0_10px_rgba(255,255,255,0.3)] hover:brightness-110 active:scale-[0.98] transition-all duration-150">ADD TO EVIDENCE <span class="material-symbols-outlined font-bold">arrow_forward</span></button>
+</div>
+</main>
+<style>
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+
+
+</body></html>

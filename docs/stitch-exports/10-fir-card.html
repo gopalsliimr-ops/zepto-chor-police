@@ -1,0 +1,246 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Chor Police - FIR Card</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#eedcff",
+                      "on-secondary": "#5d1900",
+                      "outline-variant": "#5d3f40",
+                      "on-tertiary-fixed": "#3b0900",
+                      "on-background": "#eedcff",
+                      "error-container": "#93000a",
+                      "surface-container-low": "#231437",
+                      "tertiary": "#ffb5a0",
+                      "primary-container": "#ff5167",
+                      "on-error": "#690005",
+                      "surface-container": "#27183c",
+                      "tertiary-fixed-dim": "#ffb5a0",
+                      "surface": "#1b0b2f",
+                      "surface-container-high": "#322247",
+                      "inverse-primary": "#be0036",
+                      "surface-bright": "#423257",
+                      "primary": "#ffb3b5",
+                      "on-primary": "#680019",
+                      "on-primary-fixed": "#40000c",
+                      "inverse-on-surface": "#39294e",
+                      "secondary-fixed": "#ffdbd0",
+                      "on-tertiary": "#601400",
+                      "primary-fixed": "#ffdada",
+                      "surface-tint": "#ffb3b5",
+                      "on-secondary-container": "#ffddd2",
+                      "secondary-container": "#b83900",
+                      "on-tertiary-container": "#541100",
+                      "on-tertiary-fixed-variant": "#872000",
+                      "on-primary-container": "#5b0015",
+                      "surface-container-lowest": "#150529",
+                      "surface-variant": "#3d2d52",
+                      "error": "#ffb4ab",
+                      "on-secondary-fixed-variant": "#832600",
+                      "surface-dim": "#1b0b2f",
+                      "on-secondary-fixed": "#390c00",
+                      "tertiary-container": "#ff5625",
+                      "background": "#1b0b2f",
+                      "secondary": "#ffb59d",
+                      "secondary-fixed-dim": "#ffb59d",
+                      "on-surface-variant": "#e6bcbd",
+                      "primary-fixed-dim": "#ffb3b5",
+                      "surface-container-highest": "#3d2d52",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed": "#ffdbd1",
+                      "on-surface": "#eedcff",
+                      "outline": "#ad8888",
+                      "on-primary-fixed-variant": "#920027"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "32px",
+                      "gutter": "16px",
+                      "xl": "64px",
+                      "md": "24px",
+                      "base": "8px",
+                      "xs": "4px",
+                      "margin-mobile": "16px",
+                      "lg": "40px",
+                      "sm": "12px"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "DM Sans"
+                      ],
+                      "button": [
+                              "DM Sans"
+                      ],
+                      "body-lg": [
+                              "DM Sans"
+                      ],
+                      "label-mono": [
+                              "Courier Prime"
+                      ],
+                      "headline-md": [
+                              "DM Sans"
+                      ],
+                      "display-lg-mobile": [
+                              "DM Sans"
+                      ],
+                      "display-lg": [
+                              "DM Sans"
+                      ]
+              },
+              "fontSize": {
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "button": [
+                              "16px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-mono": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col items-center overflow-x-hidden md:hidden">
+<!-- Header Navigation (Hidden on Mobile due to strict rules, though this is a modal/focus screen so wouldn't show anyway) -->
+<header class="hidden md:flex justify-between items-center w-full px-margin-mobile h-16 bg-surface/80 backdrop-blur-md dark:bg-surface/80 text-primary dark:text-primary docked full-width top-0 border-b border-white/20 flat no shadows z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">bolt</span>
+<span class="text-headline-md font-headline-md font-black italic tracking-tighter text-primary dark:text-primary">CHOR POLICE</span>
+</div>
+<div class="flex gap-4">
+<span class="text-on-surface-variant hover:bg-white/10 transition-colors p-2 rounded-lg cursor-pointer">Patrol</span>
+<span class="text-on-surface-variant hover:bg-white/10 transition-colors p-2 rounded-lg cursor-pointer">Cases</span>
+<span class="text-primary font-bold hover:bg-white/10 transition-colors p-2 rounded-lg cursor-pointer scale-95 duration-100">Evidence</span>
+<span class="text-on-surface-variant hover:bg-white/10 transition-colors p-2 rounded-lg cursor-pointer">HQ</span>
+</div>
+<span class="material-symbols-outlined cursor-pointer hover:bg-white/10 transition-colors p-2 rounded-full">location_on</span>
+</header>
+<!-- Main Canvas -->
+<main class="w-full max-w-[390px] flex-1 flex flex-col px-margin-mobile pt-lg pb-xl gap-lg relative">
+<!-- Header Text -->
+<div class="flex flex-col gap-xs text-center z-10">
+<h1 class="font-headline-md text-headline-md font-black tracking-tighter text-on-surface">PAKAD LIYA. 🚨</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Your FIR card is ready. Share it now.</p>
+</div>
+<!-- The FIR Card -->
+<div class="relative w-full bg-[#F5F0E8] rounded-xl p-md shadow-[0_8px_32px_rgba(255,81,103,0.15)] flex flex-col gap-md z-10 transform rotate-1 transition-transform hover:rotate-0 duration-300">
+<!-- Stamp Overlay -->
+<div class="absolute -top-4 -right-4 w-20 h-20 rounded-full border-[3px] border-[#8B2FC9] text-[#8B2FC9] flex items-center justify-center transform -rotate-15 opacity-80 pointer-events-none shadow-sm backdrop-blur-sm bg-white/30 mix-blend-multiply">
+<span class="font-headline-md text-headline-md font-black tracking-tighter transform -rotate-12">ZEPTO</span>
+</div>
+<!-- Card Header -->
+<div class="flex flex-col items-center border-b-2 border-dashed border-[#5d3f40]/30 pb-sm">
+<h2 class="font-label-mono text-label-mono font-bold text-[#3b0900] tracking-widest text-center text-[16px]">ZEPTO POLICE STATION</h2>
+<span class="font-label-mono text-label-mono text-[#5d1900] mt-1">FIR No. ZPT-2026-MUM-4821</span>
+</div>
+<!-- Card Details -->
+<div class="flex flex-col gap-sm">
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-[#5d1900]/70 uppercase tracking-wider">Complainant</span>
+<span class="font-label-mono text-label-mono text-[#3b0900] font-bold border-b border-[#5d3f40]/20 pb-1">Anil K. (Hungry Citizen)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-[#5d1900]/70 uppercase tracking-wider">Crime</span>
+<span class="font-label-mono text-label-mono text-[#3b0900] font-bold border-b border-[#5d3f40]/20 pb-1 text-primary-container">Stealing Deals before 10 PM</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-[#5d1900]/70 uppercase tracking-wider">Accused</span>
+<span class="font-label-mono text-label-mono text-[#3b0900] font-bold border-b border-[#5d3f40]/20 pb-1">The Midnight Muncher</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-[#5d1900]/70 uppercase tracking-wider">Caught by</span>
+<span class="font-label-mono text-label-mono text-[#3b0900] font-bold border-b border-[#5d3f40]/20 pb-1">Inspector Z.</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-[10px] text-[#5d1900]/70 uppercase tracking-wider">Dark Store</span>
+<span class="font-label-mono text-label-mono text-[#3b0900] font-bold border-b border-[#5d3f40]/20 pb-1">Bandra West, Sector 4</span>
+</div>
+<div class="flex flex-col mt-2 p-2 bg-[#5d3f40]/5 rounded border border-[#5d3f40]/20">
+<span class="font-label-mono text-[10px] text-[#5d1900]/70 uppercase tracking-wider mb-1">Verdict</span>
+<span class="font-label-mono text-label-mono text-[#93000a] font-bold uppercase">GUILTY OF MASSIVE SAVINGS</span>
+</div>
+</div>
+<!-- Ink Splatter Decoration -->
+<div class="absolute bottom-2 left-2 w-8 h-8 rounded-full bg-[#5d3f40]/10 blur-[2px] pointer-events-none"></div>
+<div class="absolute bottom-6 right-8 w-4 h-4 rounded-full bg-[#5d3f40]/10 blur-[1px] pointer-events-none"></div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-sm w-full mt-auto z-10 pb-xl">
+<button class="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-button text-button font-bold text-on-surface bg-transparent border-2 border-outline hover:bg-white/5 transition-all shadow-[inset_0_0_10px_rgba(255,255,255,0.05)] active:scale-95"><span class="material-symbols-outlined">download</span> DOWNLOAD PNG</button>
+<button class="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-button text-button font-bold text-white bg-primary-container hover:bg-primary-container/90 transition-all shadow-[inset_0_0_20px_rgba(255,255,255,0.2),0_0_15px_rgba(255,81,103,0.4)] active:scale-95 border border-white/20">SHARE CASE <span class="material-symbols-outlined">arrow_forward</span></button>
+</div>
+<!-- Decorative background elements -->
+<div class="absolute top-1/4 -left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-1/4 -right-10 w-40 h-40 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+</main>
+
+
+</body></html>
