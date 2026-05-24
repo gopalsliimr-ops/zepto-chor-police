@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Surfaces */
+  --color-background:             #1b0b2f;
+  --color-surface:                #1b0b2f;
+  --color-surface-container:      #27183c;
+  --color-surface-container-high: #322247;
+  --color-surface-bright:         #423257;
+  --color-surface-fir:            #F5F0E8;
+
+  /* Brand */
+  --color-primary-container:      #ff5167;
+  --color-on-primary-container:   #ffffff;
+  --color-brand-purple:           #8B2FC9;
+
+  /* Text */
+  --color-on-background:          #eedcff;
+  --color-on-surface:             #eedcff;
+  --color-on-surface-variant:     #e6bcbd;
+  --color-text-fir:               #3b0900;
+  --color-text-fir-label:         #5d1900;
+
+  /* Semantic */
+  --color-tertiary-container:     #ff5625;
+  --color-success:                #22C55E;
+  --color-outline:                #ad8888;
+  --color-outline-variant:        #5d3f40;
+
+  /* Typography */
+  --font-sans:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'Courier Prime', 'Courier New', monospace;
+
+  /* Spacing */
+  --spacing-margin-mobile: 16px;
+  --spacing-gutter:        16px;
+  --spacing-xs:            4px;
+  --spacing-sm:            12px;
+  --spacing-md:            24px;
+  --spacing-lg:            40px;
+  --spacing-xl:            64px;
+
+  /* Border radius */
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #1b0b2f;
+  color: #eedcff;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile container — all screens constrained to 390px */
+.mobile-container {
+  width: 100%;
+  max-width: 390px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Glass panel utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Map dot grid */
+.map-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Rider pulse glow */
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%   { box-shadow: 0 0 0 0    rgba(255, 81, 103, 0.7); }
+  70%  { box-shadow: 0 0 0 15px rgba(255, 81, 103, 0); }
+  100% { box-shadow: 0 0 0 0    rgba(255, 81, 103, 0); }
+}
+
+/* Craving bar fill animation */
+.craving-bar-fill {
+  animation: craving-fill 1.5s ease-out forwards;
+}
+
+@keyframes craving-fill {
+  from { width: 0%; }
+}
+
+/* CTA button active state */
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

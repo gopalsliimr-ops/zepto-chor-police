@@ -97,18 +97,49 @@ One page. Written for the Zepto Builder Series jury. Structure:
 
 ---
 
+## Deploy Steps
+
+```bash
+# 1. Confirm clean state
+git status
+
+# 2. Push to GitHub
+git push origin main
+
+# 3. Vercel auto-deploys from GitHub on every push to main
+# Preview URL auto-generated — test it end to end before submitting
+
+# 4. Promote / confirm production URL
+# → https://zepto-chor-police.vercel.app (or similar)
+```
+
+**GitHub:** https://github.com/gopalsliimr-ops/zepto-chor-police
+**Vercel:** Auto-deploys from main on every push — no manual deploy needed
+
+---
+
+## Post-Deploy Verification
+
+After every push, open the Vercel URL and verify:
+- [ ] Page loads (not a 404 or blank screen)
+- [ ] Fonts load correctly (DM Sans + Courier Prime)
+- [ ] Full flow works on mobile (open on phone, not just DevTools)
+- [ ] FIR card PNG downloads correctly on mobile Safari + Chrome
+- [ ] No console errors
+
+---
+
 ## Submission
 
 **Brief:** Zepto Builder Series — Brief #01 (Scream for Ice Cream)
-**Format:** Share `index.html` as a file + submit `strategy-memo.md` + attach screen recording
+**Format:** Submit Vercel URL + `strategy-memo.md` + attach screen recording
 
-**Final file check:**
+**Final deliverables:**
 ```
-zepto-prototype/
-├── index.html              ← demo this
-├── docs/
-│   └── strategy-memo.md   ← submit this
-└── zepto-chor-police-demo.mp4  ← attach this
+GitHub:  github.com/gopalsliimr-ops/zepto-chor-police
+Vercel:  zepto-chor-police.vercel.app  ← live shareable URL
+Memo:    docs/strategy-memo.md         ← submit this
+Video:   zepto-chor-police-demo.mp4    ← attach this
 ```
 
 ---
