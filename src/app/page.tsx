@@ -25,12 +25,9 @@ export default function NameEntryPage() {
         </div>
 
         {/* Headline */}
-        <h1 className="text-5xl font-black text-on-surface leading-tight mb-1">
+        <h1 className="text-5xl font-black text-on-surface leading-tight mb-10">
           Your craving is<br />already running.
         </h1>
-        <p className="text-4xl font-black leading-tight mb-10" style={{ color: '#FF2D55' }}>
-          What's your name,<br />officer?
-        </p>
 
         {/* Input */}
         <div className="mb-4">
