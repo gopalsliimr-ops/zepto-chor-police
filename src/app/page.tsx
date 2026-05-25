@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { saveState } from '@/lib/state'
+import { saveState, resetJourney } from '@/lib/state'
 
 export default function NameEntryPage() {
   const router = useRouter()
@@ -10,6 +10,7 @@ export default function NameEntryPage() {
   function handleSubmit() {
     const trimmed = name.trim()
     if (!trimmed) return
+    resetJourney()
     saveState({ userName: trimmed })
     router.push('/notification')
   }
