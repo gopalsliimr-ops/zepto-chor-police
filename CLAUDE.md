@@ -114,9 +114,11 @@ FIR No.                               ZPT-2026-MUM-[4d]
 Complainant
 [User Name in large font]
 
-Accused (Fugitive Craving)
-[emoji]  [Product Name]
-         [Brand]
+Accused (Fugitive Craving / Cravings)
+[Product Name]      ×[qty]
+[Brand]
+[Product Name 2]    ×[qty]   ← if multiple items ordered
+[Brand 2]
 ─────────────────────────────────────────────────────────
 Charge
 Section 420-IC: [time-sensitive funny charge]
@@ -215,6 +217,11 @@ Chase strip: cop emoji moves right (COP_LEFT array), ice cream fixed at right. S
 - 2026-05-25 — Price removed from FIR card: reduces friction to sharing (no one wants to share their spend)
 - 2026-05-25 — Auto-advance tracking: 3500ms per state, Skip button for demos — keeps the chase feeling alive
 - 2026-05-25 — Charge field: time-sensitive IPC joke ("Section 420-IC: Midnight Craving Possession") — deepens personalisation
+- 2026-05-25 — FIR card accused section: shows all cart items (name + brand + ×qty), no emojis — cleaner document look
+- 2026-05-25 — "FIR" not "Craving Report": FIR is a real Indian legal format — the absurdity lands because everyone knows what it is. Generic rename kills the joke.
+- 2026-05-25 — "Tera" not "Aap": intimate Gen-Z tone, not formal. "Tera FIR card tayyar hai" gets forwarded. "Aapka" does not.
+- 2026-05-25 — Tracking copy: cricket-commentator style — funny, escalating, matches the absurdist tone
+- 2026-05-25 — Name entry tagline: "Your craving is already running." — single line, creates urgency before user even types
 
 ## Deliverables Remaining
 
