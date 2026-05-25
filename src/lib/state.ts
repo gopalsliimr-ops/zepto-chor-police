@@ -69,11 +69,11 @@ export const PRODUCTS: Product[] = [
 ]
 
 export const TRACKING_STATES = [
-  { distance: '800m', copy: '800 metres. Craving abhi bhi bhaag rahi hai.', sub: 'Craving ka koi chance nahi.' },
-  { distance: '600m', copy: '600 metres. Rider tez hai. Craving thakne lagi.', sub: 'Craving thakne lagi. Rider aur tez.' },
-  { distance: '400m', copy: '400 metres. Craving ko pata chal gaya.',          sub: '200m mein pakad lega. Hold tight.' },
-  { distance: '200m', copy: '200 metres. Mat jaane dena.',                      sub: 'Almost. Almost.' },
-  { distance: 'HERE', copy: 'PAKAD LIYA. 🚨',                                  sub: 'Craving caught. Case closed.', final: true },
+  { distance: '800m', copy: 'Craving spotted. Rider on the case.',         sub: 'The craving has no idea what\'s coming.' },
+  { distance: '600m', copy: 'The craving is fast. Rider is faster.',       sub: 'Gap closing. Craving visibly nervous.' },
+  { distance: '400m', copy: 'Craving looking for an exit. There isn\'t one.', sub: 'Rider locked in. This is over.' },
+  { distance: '200m', copy: 'It\'s over. The craving just doesn\'t know it yet.', sub: 'Almost. Almost. Almost.' },
+  { distance: 'HERE', copy: 'PAKAD LIYA. 🚨',                              sub: 'Craving caught. Case closed.', final: true },
 ]
 
 const RIDERS = ['Ramesh', 'Suresh', 'Vikram', 'Ajay', 'Ravi']
