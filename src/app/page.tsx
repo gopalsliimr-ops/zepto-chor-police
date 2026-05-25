@@ -26,17 +26,17 @@ export default function NameEntryPage() {
 
         {/* Headline */}
         <h1 className="text-5xl font-black text-on-surface leading-tight mb-1">
-          Pehle batao<br />kaun hai
+          Your craving is<br />already running.
         </h1>
         <p className="text-4xl font-black leading-tight mb-10" style={{ color: '#FF2D55' }}>
-          craving pakdne<br />se pehle.
+          What's your name,<br />officer?
         </p>
 
         {/* Input */}
         <div className="mb-4">
           <input
             type="text"
-            placeholder="Apna naam likho..."
+            placeholder="Enter your name..."
             value={name}
             onChange={(e) => setName(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
