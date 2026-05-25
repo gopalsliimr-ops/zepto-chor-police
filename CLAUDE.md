@@ -89,7 +89,7 @@ zepto-prototype/
 
 | # | Screen | Key Copy / Action |
 |---|--------|------------------|
-| 1 | Name entry | "Pehle batao kaun hai" → `LET'S GO →` |
+| 1 | Name entry | "Your craving is already running." → `LET'S GO →` |
 | 2 | Push notification | Lock screen simulation → tap anywhere |
 | 3 | App home | Campaign banner: "Teri craving bhaag rahi hai." → tap banner |
 | 4 | Product listing | 4 products, per-item `− qty +` pill, sticky `VIEW CART` bar |
@@ -173,10 +173,10 @@ Real product images loaded from Zepto CDN (`cdn.zeptonow.com`). See `state.ts` P
 
 | Index | Distance | Copy | Notes |
 |---|---|---|---|
-| 0 | 800m | "800 metres. Craving abhi bhi bhaag rahi hai." | Auto-advances after 3500ms |
-| 1 | 600m | "600 metres. Rider tez hai. Craving thakne lagi." | Auto-advances |
-| 2 | 400m | "400 metres. Craving ko pata chal gaya." | Auto-advances |
-| 3 | 200m | "200 metres. Mat jaane dena." | Auto-advances |
+| 0 | 800m | "Craving spotted. Rider on the case." | Auto-advances after 3500ms |
+| 1 | 600m | "The craving is fast. Rider is faster." | Auto-advances |
+| 2 | 400m | "Craving looking for an exit. There isn't one." | Auto-advances |
+| 3 | 200m | "It's over. The craving just doesn't know it yet." | Auto-advances |
 | 4 | HERE | "PAKAD LIYA. 🚨" | `final: true` — FIR unlocks |
 
 Chase strip: cop emoji moves right (COP_LEFT array), ice cream fixed at right. Skip button shown during auto-advance.
@@ -209,7 +209,7 @@ Chase strip: cop emoji moves right (COP_LEFT array), ice cream fixed at right. S
 
 - 2026-05-25 — Mechanic: Chor Police — maps to Zepto's actual product (catching cravings), reusable across categories
 - 2026-05-25 — Stack: Next.js + Tailwind + Vercel (portability + deployment speed)
-- 2026-05-25 — Language: Hinglish body copy, English CTAs — Aanya's voice without friction
+- 2026-05-25 — Language: Hinglish flavour text, English CTAs — Aanya's voice without friction. Do not convert Hinglish to English — the absurdity is the product.
 - 2026-05-25 — FIR inline on tracking: revealed as reward after 5 tracking states — no navigation needed
 - 2026-05-25 — Multi-item cart: supports adding multiple products before checkout
 - 2026-05-25 — Price removed from FIR card: reduces friction to sharing (no one wants to share their spend)
