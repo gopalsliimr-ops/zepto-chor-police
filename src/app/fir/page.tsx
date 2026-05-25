@@ -132,18 +132,24 @@ export default function FIRPage() {
               style={{ borderBottom: '1px solid rgba(59,9,0,0.15)' }}
             >
               <div className="text-xs uppercase tracking-wider mb-2" style={{ color: '#5d1900' }}>
-                Accused (Fugitive Craving)
+                Accused (Fugitive Craving{(state.cart?.length ?? 0) > 1 ? 's' : ''})
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-3xl">{product?.emoji ?? '🍦'}</span>
-                <div>
-                  <div className="font-bold text-sm" style={{ color: '#3b0900' }}>
-                    {product?.name ?? 'Unknown Craving'}
+              <div className="space-y-2">
+                {(state.cart?.length ?? 0) > 0 ? state.cart.map(item => (
+                  <div key={item.product.name} className="flex items-center gap-2">
+                    <span className="text-2xl">{item.product.emoji}</span>
+                    <div className="flex-1">
+                      <div className="font-bold text-sm" style={{ color: '#3b0900' }}>{item.product.name}</div>
+                      <div className="text-xs" style={{ color: '#5d1900' }}>{item.product.brand}</div>
+                    </div>
+                    <span className="text-xs font-bold" style={{ color: '#5d1900' }}>×{item.quantity}</span>
                   </div>
-                  <div className="text-xs" style={{ color: '#5d1900' }}>
-                    {product?.brand}
+                )) : (
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">{product?.emoji ?? '🍦'}</span>
+                    <div className="font-bold text-sm" style={{ color: '#3b0900' }}>{product?.name ?? 'Unknown Craving'}</div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
 
