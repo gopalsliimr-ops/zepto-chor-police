@@ -28,7 +28,7 @@ export default function NameEntryPage() {
         <h1 className="text-5xl font-black text-on-surface leading-tight mb-1">
           Pehle batao<br />kaun hai
         </h1>
-        <p className="text-4xl font-black leading-tight mb-10" style={{ color: '#ff5167' }}>
+        <p className="text-4xl font-black leading-tight mb-10" style={{ color: '#FF2D55' }}>
           craving pakdne<br />se pehle.
         </p>
 
@@ -50,15 +50,15 @@ export default function NameEntryPage() {
           type="button"
           onClick={handleSubmit}
           disabled={!name.trim()}
-          className="btn-primary w-full bg-primary-container text-on-primary-container font-black text-sm tracking-widest py-4 rounded-2xl disabled:opacity-40 disabled:cursor-not-allowed transition-opacity"
+          className="btn-primary w-full bg-primary-container text-on-primary-container font-black text-sm tracking-widest py-4 rounded-full disabled:opacity-40 disabled:cursor-not-allowed transition-opacity"
         >
-          CHOR POLICE BULAO →
+          LET'S GO →
         </button>
       </div>
 
       {/* Footer */}
       <div className="text-center text-xs text-on-surface-variant font-mono pt-8">
-        Zepto Builder Series — Brief #01
+        Mumbai · Zepto Police · 24×7
       </div>
     </div>
   )

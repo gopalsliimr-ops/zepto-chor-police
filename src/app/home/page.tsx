@@ -8,7 +8,12 @@ export default function AppHomePage() {
     <div className="mobile-container bg-background flex flex-col">
       {/* Top nav */}
       <div className="flex items-center justify-between px-4 pt-5 pb-3">
-        <div className="text-on-surface font-black text-xl tracking-tight">zepto</div>
+        <div className="flex items-center gap-2">
+          <button type="button" onClick={() => router.back()} className="text-on-surface p-1">
+            ←
+          </button>
+          <div className="text-on-surface font-black text-xl tracking-tight">zepto</div>
+        </div>
         <div className="flex items-center gap-1 bg-surface-container rounded-full px-3 py-1.5">
           <span className="text-on-surface-variant text-xs">📍</span>
           <span className="text-on-surface-variant text-xs font-medium">Bandra, Mumbai</span>
@@ -29,23 +34,51 @@ export default function AppHomePage() {
 
       {/* ⬇ Campaign Banner — PRIMARY ENTRY POINT */}
       <div
-        className="mx-4 mb-4 rounded-2xl p-5 cursor-pointer active:scale-95 transition-transform overflow-hidden relative"
-        style={{ background: 'linear-gradient(135deg, #ff5167 0%, #8B2FC9 100%)' }}
+        className="mx-4 mb-4 rounded-2xl overflow-hidden cursor-pointer active:scale-[0.97] transition-transform banner-glow"
         onClick={() => router.push('/listing')}
       >
-        <div className="flex items-start justify-between">
+        {/* Top alert band */}
+        <div
+          className="flex items-center justify-between px-4 py-2"
+          style={{ background: 'rgba(0,0,0,0.35)' }}
+        >
+          <div className="flex items-center gap-2">
+            <span className="blink-dot w-2 h-2 rounded-full bg-green-400 inline-block" />
+            <span className="text-white text-xs font-mono tracking-widest">LIVE ALERT</span>
+          </div>
+          <span className="text-white/60 text-xs font-mono tracking-widest">CASE #ZPT-2026</span>
+        </div>
+
+        {/* Main content */}
+        <div
+          className="px-5 pt-4 pb-4 flex items-end justify-between"
+          style={{ background: 'linear-gradient(135deg, #FF2D55 0%, #8B2FC9 100%)' }}
+        >
           <div className="flex-1">
-            <div className="text-white/80 text-xs font-mono tracking-widest uppercase mb-2">
-              🚨 ACTIVE OPERATION
+            <div className="text-white text-2xl font-black leading-tight mb-2">
+              Teri craving<br />bhaag rahi hai.
             </div>
-            <div className="text-white text-2xl font-black leading-tight mb-1">
-              Chor Police<br />active hai.
-            </div>
-            <div className="text-white/80 text-sm">
-              Pakad lo pehle bhaag jaaye →
+            <div className="text-white/80 text-sm font-mono">
+              Zepto Police dispatch ho gayi. →
             </div>
           </div>
-          <div className="text-6xl ml-4 -mt-1">👮</div>
+
+          {/* Chase visual */}
+          <div className="flex flex-col items-center gap-0.5 ml-4">
+            <span className="text-4xl animate-bounce">🍦</span>
+            <span className="text-white/50 text-xs font-mono leading-none">·  ·  ·</span>
+            <span className="text-4xl">👮</span>
+          </div>
+        </div>
+
+        {/* Ticker */}
+        <div
+          className="overflow-hidden py-2"
+          style={{ background: 'rgba(0,0,0,0.3)' }}
+        >
+          <span className="ticker-track text-white/70 text-xs font-mono">
+            🚨 Craving spotted in your area &nbsp;·&nbsp; Zepto Police dispatched &nbsp;·&nbsp; 10 min window closing &nbsp;·&nbsp; Pakad lo pehle bhaag jaaye &nbsp;·&nbsp; 🚨 Craving spotted in your area &nbsp;·&nbsp; Zepto Police dispatched &nbsp;·&nbsp; 10 min window closing &nbsp;·&nbsp; Pakad lo pehle bhaag jaaye &nbsp;·&nbsp;
+          </span>
         </div>
       </div>
 

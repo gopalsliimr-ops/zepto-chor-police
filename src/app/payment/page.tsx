@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { initDynamicValues, saveState } from '@/lib/state'
+import { initDynamicValues, loadState, saveState } from '@/lib/state'
 
 const PAYMENT_METHODS = [
   { id: 'upi', label: 'UPI', sub: 'GPay · PhonePe · Paytm', icon: '📲' },
@@ -16,7 +16,8 @@ export default function PaymentPage() {
   const [selected, setSelected] = useState<MethodId>('upi')
 
   function confirmPayment() {
-    const dynamicVals = initDynamicValues()
+    const s = loadState()
+    const dynamicVals = initDynamicValues(s.userName, s.selectedProduct?.name ?? '')
     saveState(dynamicVals)
     router.push('/confirmed')
   }
@@ -64,7 +65,7 @@ export default function PaymentPage() {
                 {selected === method.id && (
                   <div
                     className="w-2.5 h-2.5 rounded-full"
-                    style={{ background: '#ff5167' }}
+                    style={{ background: '#FF2D55' }}
                   />
                 )}
               </div>
@@ -86,10 +87,10 @@ export default function PaymentPage() {
         <button
           type="button"
           onClick={confirmPayment}
-          className="btn-primary w-full text-on-primary-container font-black text-sm tracking-widest py-4 rounded-2xl"
-          style={{ background: '#ff5167' }}
+          className="btn-primary w-full text-on-primary-container font-black text-sm tracking-widest py-4 rounded-full"
+          style={{ background: '#FF2D55' }}
         >
-          OPERATION CONFIRM KARO →
+          CONFIRM ORDER →
         </button>
       </div>
     </div>

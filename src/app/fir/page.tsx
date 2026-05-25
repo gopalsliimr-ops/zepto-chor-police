@@ -60,10 +60,10 @@ export default function FIRPage() {
       <div className="flex items-center gap-3 px-4 pt-5 pb-2">
         <button
           type="button"
-          onClick={() => router.push('/')}
-          className="text-on-surface p-1 text-xl"
+          onClick={() => router.back()}
+          className="text-on-surface p-1"
         >
-          🏠
+          ←
         </button>
         <div className="text-on-surface font-black text-base flex-1 text-center pr-8">
           PAKAD LIYA. 🚨
@@ -141,9 +141,17 @@ export default function FIRPage() {
                     {product?.name ?? 'Unknown Craving'}
                   </div>
                   <div className="text-xs" style={{ color: '#5d1900' }}>
-                    {product?.brand} · {product?.price}
+                    {product?.brand}
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Charge */}
+            <div className="mb-4 pb-4" style={{ borderBottom: '1px solid rgba(59,9,0,0.15)' }}>
+              <div className="text-xs uppercase tracking-wider mb-1" style={{ color: '#5d1900' }}>Charge</div>
+              <div className="font-bold text-sm italic" style={{ color: '#3b0900' }}>
+                {state.charge || 'Section 420-IC: Unauthorized Craving'}
               </div>
             </div>
 
@@ -153,10 +161,10 @@ export default function FIRPage() {
               style={{ borderBottom: '1px solid rgba(59,9,0,0.15)' }}
             >
               {[
-                { label: 'Officer', value: state.riderName || '-' },
-                { label: 'Response Time', value: state.deliveryTime || '-' },
+                { label: 'Arresting Officer', value: state.riderName || '-' },
+                { label: 'Time of Crime',     value: state.orderTime || '-' },
                 { label: 'Craving Intensity', value: `${state.cravingIntensity || 0}%` },
-                { label: 'Date', value: today },
+                { label: 'Date',              value: today },
               ].map((row) => (
                 <div key={row.label}>
                   <div className="text-xs uppercase tracking-wider mb-0.5" style={{ color: '#5d1900' }}>
@@ -180,7 +188,7 @@ export default function FIRPage() {
             </div>
 
             {/* ZEPTO stamp + footer */}
-            <div className="flex items-end justify-between">
+            <div className="flex items-end justify-between mb-3">
               <div className="text-xs opacity-40" style={{ color: '#3b0900' }}>
                 Issued by: zepto.app
               </div>
@@ -197,6 +205,9 @@ export default function FIRPage() {
                 <div className="font-bold text-xs tracking-widest text-center">POLICE</div>
               </div>
             </div>
+            <div className="text-center text-xs italic opacity-30" style={{ color: '#3b0900' }}>
+              100% unofficial. No actual police involved.
+            </div>
           </div>
         </div>
       </div>
@@ -207,17 +218,17 @@ export default function FIRPage() {
           type="button"
           onClick={downloadPNG}
           disabled={downloading}
-          className="btn-primary w-full text-on-primary-container font-black text-sm tracking-widest py-4 rounded-2xl disabled:opacity-60"
-          style={{ background: '#ff5167' }}
+          className="btn-primary w-full text-on-primary-container font-black text-sm tracking-widest py-4 rounded-full disabled:opacity-60"
+          style={{ background: '#FF2D55' }}
         >
-          {downloading ? 'GENERATING...' : 'DOWNLOAD PNG →'}
+          {downloading ? 'GENERATING...' : 'DOWNLOAD FIR →'}
         </button>
         <button
           type="button"
           onClick={() => router.push('/')}
           className="w-full text-on-surface-variant text-sm font-mono py-2 text-center"
         >
-          Naya case file karo
+          Catch Another Craving →
         </button>
       </div>
     </div>

@@ -2,30 +2,30 @@
 
 @theme inline {
   /* Surfaces */
-  --color-background:             #1b0b2f;
-  --color-surface:                #1b0b2f;
+  --color-background:             #1A0A2E;
+  --color-surface:                #1A0A2E;
   --color-surface-container:      #27183c;
   --color-surface-container-high: #322247;
   --color-surface-bright:         #423257;
   --color-surface-fir:            #F5F0E8;
 
   /* Brand */
-  --color-primary-container:      #ff5167;
+  --color-primary-container:      #FF2D55;
   --color-on-primary-container:   #ffffff;
   --color-brand-purple:           #8B2FC9;
 
   /* Text */
-  --color-on-background:          #eedcff;
-  --color-on-surface:             #eedcff;
-  --color-on-surface-variant:     #e6bcbd;
+  --color-on-background:          #FFFFFF;
+  --color-on-surface:             #FFFFFF;
+  --color-on-surface-variant:     #B8A9C9;
   --color-text-fir:               #3b0900;
   --color-text-fir-label:         #5d1900;
 
   /* Semantic */
   --color-tertiary-container:     #ff5625;
   --color-success:                #22C55E;
-  --color-outline:                #ad8888;
-  --color-outline-variant:        #5d3f40;
+  --color-outline:                #4A3B6B;
+  --color-outline-variant:        #2D1F4A;
 
   /* Typography */
   --font-sans:    'DM Sans', system-ui, sans-serif;
@@ -57,8 +57,8 @@ html {
 }
 
 body {
-  background-color: #1b0b2f;
-  color: #eedcff;
+  background-color: #1A0A2E;
+  color: #FFFFFF;
   font-family: 'DM Sans', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -94,9 +94,9 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%   { box-shadow: 0 0 0 0    rgba(255, 81, 103, 0.7); }
-  70%  { box-shadow: 0 0 0 15px rgba(255, 81, 103, 0); }
-  100% { box-shadow: 0 0 0 0    rgba(255, 81, 103, 0); }
+  0%   { box-shadow: 0 0 0 0    rgba(255, 45, 85, 0.7); }
+  70%  { box-shadow: 0 0 0 15px rgba(255, 45, 85, 0); }
+  100% { box-shadow: 0 0 0 0    rgba(255, 45, 85, 0); }
 }
 
 /* Craving bar fill animation */
@@ -111,6 +111,44 @@ body {
 /* CTA button active state */
 .btn-primary:active {
   transform: scale(0.98);
+}
+
+/* Campaign banner glow */
+.banner-glow {
+  animation: banner-glow 2.5s ease-in-out infinite;
+}
+@keyframes banner-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 45, 85, 0); }
+  50%       { box-shadow: 0 0 24px 6px rgba(255, 45, 85, 0.35); }
+}
+
+/* LIVE dot blink */
+.blink-dot {
+  animation: blink-dot 1s step-start infinite;
+}
+@keyframes blink-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Ticker scroll */
+.ticker-track {
+  display: inline-block;
+  animation: ticker 14s linear infinite;
+  white-space: nowrap;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* FIR card reveal */
+.fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Reduced motion */

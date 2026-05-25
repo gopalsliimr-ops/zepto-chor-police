@@ -1,39 +1,14 @@
 # Zepto × Chor Police — Project Notes
 
-## Document Checklist
-
-**Phase 1 — Discovery**
-- [x] `problem-statement` — in `~/zepto-scream-research.md` §1, §5
-- [x] `competitive-analysis` — in `~/zepto-scream-research.md` §2, §3
-- [x] `solution-doc` — in `~/zepto-scream-research.md` §7–14 (all mechanic rounds + final decisions)
-- [x] `docs/prd.md` — problem, user (Aanya), solution, success criteria, metrics, scope, constraints, deliverables
-
-**Phase 2 — Design & Brand**
-- [x] `brand-guidelines` — `docs/brand-guidelines.md` (researched from live app, Play Store, 6 case studies — colors, fonts, voice, microcopy patterns)
-- [x] `user-flows` — Complete 10-screen flow table in §14
-- [x] `design-system` — tokens defined in §14 + this file below
-- [ ] `docs/strategy-memo.md` — deliverable, not yet written
-
-**Phase 3 — Build**
-- [ ] `docs/session-plan.md` — fill before each session
-- [x] `index.html` — prototype target file (not yet built)
-
-**Phase 4 — Deliverables (before submission)**
-- [ ] Working prototype (index.html) — 10 screens, Hinglish, shareable FIR card
-- [ ] One-page strategy memo (docs/strategy-memo.md)
-- [ ] 30-second screen recording (landscape)
-
----
-
 ## What This Is
 
-A prototype for the Zepto Builder Series Brief #01 — turn ice cream ordering into a
+A Next.js prototype for the Zepto Builder Series Brief #01 — turn ice cream ordering into a
 shareable brand moment using the "Chor Police" mechanic (craving = fugitive, rider = cop).
 
 **Goal:** Demo a compelling, viral-ready in-app experience that Aanya (24, Mumbai) would
 actually screenshot and share. Ships inside Zepto's 10-min SLA, zero ops changes.
 
-**Stage:** Building — prototype only, no backend
+**Stage:** Built — prototype complete, deployed on Vercel.
 
 ---
 
@@ -52,11 +27,14 @@ actually screenshot and share. Ships inside Zepto's 10-min SLA, zero ops changes
 
 ## Stack
 
-**Format:** Plain HTML + CSS + vanilla JS — single `index.html` file
-**No:** Build tools, npm, bundlers, frameworks
-**Fonts:** Google Fonts CDN (DM Sans + Courier Prime)
-**Download:** html2canvas via cdnjs CDN
-**Deployment:** Open in browser / shareable file
+**Framework:** Next.js 15+ App Router, all pages `'use client'`
+**Language:** TypeScript strict, no `any`
+**Styles:** Tailwind v4 with `@theme inline` CSS custom properties
+**Package manager:** pnpm
+**Download:** html2canvas (dynamic import, scale 3)
+**State:** localStorage via `src/lib/state.ts` (`loadState` / `saveState`)
+**Deployment:** Vercel (`vercel --prod --yes`)
+**Fonts:** DM Sans (app) + Courier Prime (FIR card) via Google Fonts CDN
 
 ---
 
@@ -64,93 +42,100 @@ actually screenshot and share. Ships inside Zepto's 10-min SLA, zero ops changes
 
 ```
 zepto-prototype/
-  index.html              — entire prototype (all 10 screens)
-  CLAUDE.md               — this file
+  src/
+    app/
+      page.tsx              — Screen 1: Name entry
+      notification/page.tsx — Screen 2: Push notification lock screen
+      home/page.tsx         — Screen 3: App home with campaign banner
+      listing/page.tsx      — Screen 4: Product listing + multi-cart controls
+      detail/page.tsx       — Screen 5: Product detail + craving meter
+      cart/page.tsx         — Screen 6: Multi-item cart + bill summary
+      payment/page.tsx      — Screen 7: Payment confirmation
+      confirmed/page.tsx    — Screen 8: Order confirmed + locked FIR preview
+      tracking/page.tsx     — Screen 9: Live tracking + inline FIR card
+      fir/page.tsx          — Standalone FIR page (backup, not in main flow)
+      globals.css           — Brand tokens + keyframe animations
+      layout.tsx            — Root layout
+    lib/
+      state.ts              — AppState, PRODUCTS, TRACKING_STATES, helpers
+  CLAUDE.md
   docs/
-    brand-guidelines.md   — colors, fonts, voice, microcopy (done)
-    strategy-memo.md      — one-page memo (to be written)
-    session-plan.md       — current session plan (to be written)
+    prd.md
+    brand-guidelines.md
+    strategy-memo.md        — to be written
 ```
 
 ---
 
-## Design Tokens
-*(Updated after brand research — see docs/brand-guidelines.md for full rationale)*
+## Design Tokens (globals.css)
 
-| Token | Value | Use | Source |
-|---|---|---|---|
-| `--purple` | `#8B2FC9` | Brand purple — surfaces, banners | Observed from app |
-| `--purple-dark` | `#1A0A2E` | App page background | Observed |
-| `--purple-mid` | `#2D1554` | Headers, tracking map | Inferred |
-| `--hot-pink` | `#FF2D55` | All CTAs, logo accent | VERIFIED from app |
-| `--orange` | `#FF6B35` | Urgency states, delayed status | Observed |
-| `--green` | `#22C55E` | Success / on-time status | Observed |
-| `--cream` | `#F5F0E8` | FIR card background | Our choice |
-| `--ink` | `#1A1A1A` | FIR card text | Our choice |
-| `--white` | `#FFFFFF` | App screen text | Verified |
+| Token | Value | Use |
+|---|---|---|
+| `background` | `#1A0A2E` | Page backgrounds |
+| `surface-container` | `#27183c` | Cards, panels |
+| `primary-container` | `#FF2D55` | All CTAs |
+| `brand-purple` | `#8B2FC9` | FIR stamp, accents |
+| `success` | `#22C55E` | Arrived state, live dot |
+| `on-surface-variant` | `#B8A9C9` | Secondary text |
+| `surface-fir` | `#F5F0E8` | FIR card background |
+| `text-fir` | `#3b0900` | FIR card body text |
+| `text-fir-label` | `#5d1900` | FIR card label text |
 
-**Typography:**
-- App screens: DM Sans, bold/800/900 (Zepto's closest confirmed font)
-- FIR card: Courier Prime (monospace)
+**CSS animations declared:** `pulse-glow`, `craving-fill`, `banner-glow`, `blink-dot`, `ticker-track`, `fade-in-up`
 
 ---
 
-## 10-Screen Flow (locked — do not change without flagging)
+## 9-Screen Flow (locked — do not change without flagging)
 
-| # | Screen | Key Copy | Action |
-|---|---|---|---|
-| 1 | Name entry | *"Pehle batao kaun hai — craving pakdne se pehle."* | Type name → submit |
-| 2 | Push notification | *"Teri craving bhaag rahi hai. Zepto Police tayaar hai."* | Tap anywhere |
-| 3 | App home | Campaign banner: *"Chor Police active hai."* | Tap banner |
-| 4 | Product listing | *"Pakad lo pehle bhaag jaaye."* 4 products | Tap product |
-| 5 | Product detail | *"Yeh craving zyada der nahi rukegi."* + craving meter | Add to cart |
-| 6 | Cart | *"Evidence secured. Dispatch ke liye tayaar."* | Proceed to payment |
-| 7 | Payment | *"Operation authorize karo."* | Confirm order |
-| 8 | Order confirmed | *"Dispatch ho gaya. Rider [Name] nikal pada."* | Tap to track |
-| 9 | Tracking × 5 states | 800m → 600m → 400m → 200m → PAKAD LIYA | Tap to advance |
-| 10 | FIR card | Fully personalised. Download as PNG. | Share |
+| # | Screen | Key Copy / Action |
+|---|--------|------------------|
+| 1 | Name entry | "Pehle batao kaun hai" → `LET'S GO →` |
+| 2 | Push notification | Lock screen simulation → tap anywhere |
+| 3 | App home | Campaign banner: "Teri craving bhaag rahi hai." → tap banner |
+| 4 | Product listing | 4 products, per-item `− qty +` pill, sticky `VIEW CART` bar |
+| 5 | Product detail | Craving meter, `ADD TO CART →` / `− qty +` pill |
+| 6 | Cart | All items, bill summary, `PROCEED TO PAY → ₹X` |
+| 7 | Payment | UPI mock, `CONFIRM ORDER →` (triggers dynamic value generation) |
+| 8 | Confirmed | Rider card, ETA, blurred+locked FIR preview → `TRACK THE ARREST →` |
+| 9 | Tracking | Auto-advance 5 states → PAKAD LIYA → FIR card unlocks inline |
 
-**Tracking state copy (exact):**
-- State 1: "800 metres. Craving abhi bhi bhaag rahi hai."
-- State 2: "600 metres. Rider tez hai. Craving thakne lagi."
-- State 3: "400 metres. Craving ko pata chal gaya."
-- State 4: "200 metres. Mat jaane dena."
-- State 5: "PAKAD LIYA."
+**FIR card is inline on Screen 9. There is no separate /fir navigation in the main flow.**
 
 ---
 
-## FIR Card Spec
+## FIR Card Spec (current)
 
 ```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   ZEPTO POLICE STATION
-   FIR No. ZPT-2026-MUM-[4 digits]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Complainant : [First Name], Mumbai
-Crime       : Attempted Craving Escape
-Accused     : 1x [Product Name]
-Caught by   : Rider [Random Name]
-Dark Store  : Mumbai Central
-Time        : [7:42–9:28 range]
-Verdict     : [Context-sensitive line]
-              Case closed.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[ZEPTO PURPLE OFFICIAL STAMP — top right]
-Issued by: zepto.app
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[Dark band #3b0900]  First Information Report
+                     Zepto Chor Police Dept.           🚨
+─────────────────────────────────────────────────────────
+FIR No.                               ZPT-2026-MUM-[4d]
+─────────────────────────────────────────────────────────
+Complainant
+[User Name in large font]
+
+Accused (Fugitive Craving)
+[emoji]  [Product Name]
+         [Brand]
+─────────────────────────────────────────────────────────
+Charge
+Section 420-IC: [time-sensitive funny charge]
+─────────────────────────────────────────────────────────
+Arresting Officer    Time of Crime
+[Rider Name]         [HH:MM AM/PM]
+
+Craving Intensity    Date
+[73–98]%             [DD/MM/YYYY]
+─────────────────────────────────────────────────────────
+Verdict
+"[time-of-day personalised line]"
+─────────────────────────────────────────────────────────
+Issued by: zepto.app    [ZEPTO POLICE stamp, rotated -5°]
+
+100% unofficial. No actual police involved.
 ```
 
-**Verdict lines:**
-- After 11 PM weekday: *"Justified. Weekdays are hard."*
-- After 11 PM weekend: *"Valid. Weekend nights were made for this."*
-- 9–11 PM: *"Valid. Long days deserve good endings."*
-- Default: *"Justified. No further questions."*
-
-**Brand embedding in shared PNG:**
-- "ZEPTO POLICE STATION" header
-- ZPT- prefix on FIR number
-- Zepto purple circular stamp (top-right)
-- "Issued by: zepto.app" footer
+**Price is NOT shown on the FIR card.** Removed to encourage sharing.
 
 ---
 
@@ -159,23 +144,54 @@ Issued by: zepto.app
 | Variable | Source |
 |---|---|
 | User name | Typed on screen 1 |
-| City | Hardcoded: Mumbai |
 | Rider name | Random: Ramesh / Suresh / Vikram / Ajay / Ravi |
-| Delivery time | Random: 7:42–9:28 range |
-| FIR number | Random 4-digit suffix |
-| Verdict | Based on current time-of-day |
-| Craving intensity | Random 73–98% |
+| FIR number | `ZPT-2026-MUM-` + random 4-digit suffix |
+| Delivery time | Random: 7–9 mins + random seconds |
+| Order time | Current time captured at payment confirm |
+| Charge | Time-based: midnight / late night / evening / afternoon / default |
+| Craving intensity | Random: 73–98% |
+| Verdict | 4 conditions: weekday after 11pm / weekend after 11pm / 9–11pm / default |
+
+All dynamic values generated in `initDynamicValues()` in `state.ts`, called from `payment/page.tsx`.
 
 ---
 
-## Products
+## Products (current)
 
 | Name | Emoji | Price | Brand |
 |---|---|---|---|
-| Kool Kone | 🍦 | ₹35 | Amul |
-| Magnum Gold | 🍫 | ₹120 | Hindustan Unilever |
-| Cornetto Classic | 🍧 | ₹60 | Kwality Walls |
-| Choco Bar | 🍨 | ₹25 | Havmor |
+| Amul Gold TriCone | 🍦 | ₹35 | Amul |
+| Magnum Classic | 🍫 | ₹80 | Kwality Walls |
+| Cornetto Choco | 🍧 | ₹40 | Kwality Walls |
+| Havmor Zulubar | 🍨 | ₹48 | Havmor |
+
+Real product images loaded from Zepto CDN (`cdn.zeptonow.com`). See `state.ts` PRODUCTS array for full URLs.
+
+---
+
+## Tracking States (exact)
+
+| Index | Distance | Copy | Notes |
+|---|---|---|---|
+| 0 | 800m | "800 metres. Craving abhi bhi bhaag rahi hai." | Auto-advances after 3500ms |
+| 1 | 600m | "600 metres. Rider tez hai. Craving thakne lagi." | Auto-advances |
+| 2 | 400m | "400 metres. Craving ko pata chal gaya." | Auto-advances |
+| 3 | 200m | "200 metres. Mat jaane dena." | Auto-advances |
+| 4 | HERE | "PAKAD LIYA. 🚨" | `final: true` — FIR unlocks |
+
+Chase strip: cop emoji moves right (COP_LEFT array), ice cream fixed at right. Skip button shown during auto-advance.
+
+---
+
+## Build Rules for This Project
+
+- `loadState()` always merges with `emptyState()` — prevents blank screen on old localStorage data
+- All date/time/localStorage reads inside `useEffect` — prevents hydration mismatches
+- `selectedProduct` set to `cart[0].product` before navigating to payment
+- html2canvas: dynamic import, `scale: 3`, `backgroundColor: '#F5F0E8'`, `el.style.transform = 'none'` before capture
+- Back button on every screen
+- CTAs are English. Body copy and flavour text are Hinglish.
+- FIR card must show "100% unofficial. No actual police involved." disclaimer
 
 ---
 
@@ -189,26 +205,19 @@ Issued by: zepto.app
 
 ---
 
-## Key Flows
-
-1. **Full demo flow:** Name → Notification → Home → Listing → Detail → Cart → Payment → Confirmed → Tracking × 5 → FIR card → Download PNG
-2. **Back navigation:** Every screen except name entry has a back button
-
----
-
-## Build Rules for This Project
-
-- Single `index.html` — no separate JS/CSS files (prototype portability)
-- Mobile-first: max-width 390px, centered on desktop
-- No auto-advance — every transition is user-initiated (tap)
-- FIR card download: html2canvas scale 3 for high-res PNG
-- Screenshot fallback if html2canvas fails
-
----
-
 ## Decisions
 
-- 2026-05-25 — Mechanic: Chor Police over Tatkal/Breaking News — most original, maps to Zepto's actual product (catching cravings), reusable across all categories
-- 2026-05-25 — Format: Single HTML file — maximum portability for demo/sharing/recording
-- 2026-05-25 — Language: Full Hinglish throughout — matches Aanya's voice, adds to virality
-- 2026-05-25 — Delivery time: Random 7:42–9:28 — realistic without creating SLA pressure
+- 2026-05-25 — Mechanic: Chor Police — maps to Zepto's actual product (catching cravings), reusable across categories
+- 2026-05-25 — Stack: Next.js + Tailwind + Vercel (portability + deployment speed)
+- 2026-05-25 — Language: Hinglish body copy, English CTAs — Aanya's voice without friction
+- 2026-05-25 — FIR inline on tracking: revealed as reward after 5 tracking states — no navigation needed
+- 2026-05-25 — Multi-item cart: supports adding multiple products before checkout
+- 2026-05-25 — Price removed from FIR card: reduces friction to sharing (no one wants to share their spend)
+- 2026-05-25 — Auto-advance tracking: 3500ms per state, Skip button for demos — keeps the chase feeling alive
+- 2026-05-25 — Charge field: time-sensitive IPC joke ("Section 420-IC: Midnight Craving Possession") — deepens personalisation
+
+## Deliverables Remaining
+
+- [ ] 30-second screen recording (landscape, phone browser)
+- [ ] `docs/strategy-memo.md` — one-page opinionated memo
+- [ ] Tone test: show to one person in Aanya's cohort

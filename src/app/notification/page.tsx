@@ -23,8 +23,19 @@ export default function NotificationPage() {
       style={{ background: '#0A0A14' }}
       onClick={() => router.push('/home')}
     >
+      {/* Back button */}
+      <div className="px-4 pt-4">
+        <button
+          type="button"
+          onClick={(e) => { e.stopPropagation(); router.back() }}
+          className="text-white/60 p-1 text-lg"
+        >
+          ←
+        </button>
+      </div>
+
       {/* Status bar */}
-      <div className="flex items-center justify-between px-6 pt-5 pb-2">
+      <div className="flex items-center justify-between px-6 pt-2 pb-2">
         <span className="text-white text-sm font-semibold">{timeStr}</span>
         <div className="flex items-center gap-1.5">
           <span className="text-white text-xs">●●●</span>

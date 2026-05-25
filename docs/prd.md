@@ -127,37 +127,23 @@ Three structural shifts make this urgent in summer 2026:
 
 ---
 
-## 2. Broader Problem Statement
-
-### 2.1 Industry-Level Problem
-
-Quick commerce apps were designed for functional efficiency — speed, catalogue depth, price. All three players look identical: same 10-minute promise (now regulated away), same dark store model, same SKUs. Brand recall = whoever discounted last. The category is becoming invisible as a brand category even as it grows as a commerce category. 🟡
-
-The architectural mismatch: operational excellence cannot create emotional memory. Zepto has built the best quick delivery network in Indian metros. But the product flow — search → add → checkout → wait → receive — generates zero story worth telling.
-
-### 2.2 User-Level Problem
-
-Aanya does not choose apps based on delivery time during a late-night craving. She chooses based on the last memorable experience. Zepto is in her top 3 apps by order frequency but bottom 3 by emotional association. Every session is a fresh decision. There is no loyalty, only convenience.
-
-### 2.3 Architectural Ceilings
-
-Structural constraints that prevent ANY existing approach from solving this within normal product thinking:
-
-**Ceiling 1: Speed cannot be the differentiator** — Government regulation removed "10-minute" from all advertising. Zepto cannot lead with its primary advantage. It needs a new language. 🟢
-
-**Ceiling 2: Discounting erodes margins and trains users to wait** — Albinder Dhindsa (Eternal Group CEO) has explicitly stated that QC cannot be built on heavy discounting. A straight discount campaign accelerates the race to the bottom. Any solution must create brand value, not price dependence. 🟢
-
-**Ceiling 3: Generic "fun" campaigns don't stick** — Copy-cat entertainment (another scream variant, another challenge) will read as Blinkit's second attempt. Zepto needs to own distinct territory from Blinkit's loud, crowd-participation mechanic. 🔵
-
-> **Product Insight:** The problem is not about improving Zepto's features. It is about giving Zepto's speed a name, a character, and an output worth sharing. The product is already excellent. The story is missing.
-
----
-
-## 3. Target User
+## 2. Target User
 
 **Segment:** Urban Indian adults, 22–28, Tier 1 metros, QC regular users (3–5x/week), with a defined pattern of late-night impulse ordering for non-essential categories (ice cream, snacks, treats). The defining condition: they choose between apps at the moment of desire, not based on prior research.
 
-**Behavioural traits:**
+### Aanya — Primary Persona
+
+| Attribute | Detail |
+|-----------|--------|
+| Name / Age | Aanya, 24 |
+| City | Mumbai (Bandra West) |
+| Reality | 4x ice cream orders/month, 78% after 9pm, 2–3 QC apps installed |
+| Current tools | Zepto (utility), Blinkit (fun), Swiggy Instamart (backup) |
+| Goal | Ice cream at 10pm, delivered before the craving fades, with zero friction |
+| Core frustration | "Zepto is fast but boring. Nothing to tell anyone." |
+| History | Used Zepto for staples for 6+ months. Never posted about it. Posted about Blinkit Scream within 48 hours of trying it. |
+
+### Behavioural Traits
 
 | Behaviour | Description |
 |-----------|-------------|
@@ -173,7 +159,7 @@ These traits are not fixable with better onboarding or a loyalty program. They d
 
 ---
 
-## 4. What Users Actually Do (Primary Research)
+## 3. What Users Actually Do (Primary Research)
 
 **Sample:** Brief-supplied Aanya profile (Zepto internal data) + secondary behavioural research. No independent primary interviews conducted — brief permits proxy research.
 
@@ -207,7 +193,7 @@ These traits are not fixable with better onboarding or a loyalty program. They d
 
 ---
 
-## 5. Market Context (Secondary Research)
+## 4. Market Context (Secondary Research)
 
 **Market size:** India ice cream market ₹31,000 crore (2025), growing 14–16% CAGR, QC now 10%+ of HUL's ice cream business. 🟡
 
@@ -222,7 +208,7 @@ These traits are not fixable with better onboarding or a loyalty program. They d
 
 ---
 
-## 6. Existing Ecosystem
+## 5. Existing Ecosystem
 
 ### Baseline — What Users Actually Use
 
@@ -243,7 +229,7 @@ The real competitive benchmark is not features — it is which app lives in Aany
 
 ---
 
-## 7. Problem Prioritisation
+## 6. Problem Prioritisation
 
 ### Problems Identified
 
@@ -263,18 +249,9 @@ Why this chain: P1 is the root. Everything downstream is a symptom. Solve P1 —
 
 The strategic call: do not compete with Blinkit on Blinkit's terms (loud, participatory, crowd-sourced). Find Zepto's distinct territory. Zepto is fast. Blinkit is loud. The Chor Police mechanic is the first time Zepto's speed becomes a story — not just a number.
 
-### What We Are Not Solving and Why
-
-| Problem | Reason Excluded |
-|---------|----------------|
-| Catalogue depth (5,000 vs 30,000 SKUs) | Structural ops/procurement decision, not a UX mechanic |
-| Tier-2 city presence | Zepto's geographic strategy, out of scope for this brief |
-| Loyalty / points systems | Explicitly out of scope per brief |
-| Post-delivery rating / review flow | Downstream of the shareable moment; V2 territory |
-
 ---
 
-## 8. Key Assumptions
+## 7. Key Assumptions
 
 | Assumption | Evidence | Confidence |
 |-----------|----------|------------|
@@ -291,7 +268,7 @@ The strategic call: do not compete with Blinkit on Blinkit's terms (loud, partic
 
 ---
 
-## 9. Product Concept
+## 8. Product Concept
 
 ### What We Are Building
 
@@ -317,21 +294,7 @@ Chor Police is not another discount mechanic. It inverts the relationship betwee
 
 ---
 
-## 10. Primary Persona
-
-| Attribute | Detail |
-|-----------|--------|
-| Name / Age | Aanya, 24 |
-| City | Mumbai (Bandra West) |
-| Reality | 4x ice cream orders/month, 78% after 9pm, 2–3 QC apps installed |
-| Current tools | Zepto (utility), Blinkit (fun), Swiggy Instamart (backup) |
-| Goal | Ice cream at 10pm, delivered before the craving fades, with zero friction |
-| Core frustration | "Zepto is fast but boring. Nothing to tell anyone." |
-| History | Used Zepto for staples for 6+ months. Never posted about it. Posted about Blinkit Scream within 48 hours of trying it. |
-
----
-
-## 11. Before and After
+## 9. Before and After
 
 ### Before — An Ice Cream Order on Zepto Tonight
 
@@ -358,7 +321,7 @@ Chor Police is not another discount mechanic. It inverts the relationship betwee
 
 ---
 
-## 12. Goals
+## 10. Goals
 
 **We will know this worked when:**
 - [ ] Aanya downloads the FIR card without being prompted to
@@ -378,6 +341,15 @@ Chor Police is not another discount mechanic. It inverts the relationship betwee
 - No new ops infrastructure introduced (zero warehouse change)
 - App rating maintained (campaign must not feel intrusive)
 
+### Targets and Kill Signals
+
+| Metric | Target | Kill Signal |
+|--------|--------|-------------|
+| Flow completion rate | > 80% | < 50% |
+| FIR card download rate | > 35% | < 10% |
+| Brief criteria pass rate | 4/4 | < 3/4 |
+| Brand recognition (no logo) | 100% | < 80% |
+
 ### What Does Good Look Like
 
 **Minimum acceptable:** FIR card download rate > 15% of Chor Police orders. Campaign runs without ops escalation.
@@ -392,7 +364,7 @@ Chor Police is not another discount mechanic. It inverts the relationship betwee
 
 ---
 
-## 13. Non-Goals
+## 11. Non-Goals
 
 **We are explicitly NOT building:**
 - A loyalty points system — because it contradicts the campaign format and is out of scope per brief
@@ -400,10 +372,12 @@ Chor Police is not another discount mechanic. It inverts the relationship betwee
 - AR/VR elements — because explicitly out of scope per brief
 - Multi-city support (V1) — because Mumbai is the prototype market; city-specific copy would need localisation
 - A separate app or microsite — because it ships inside the existing Zepto experience, no separate APK
+- Catalogue depth improvements — sourcing and ops problem, not a campaign problem
+- Tier-2 city presence — geographic strategy, out of scope
 
 ---
 
-## 14. User Stories
+## 12. User Stories
 
 *Organised by job-to-be-done.*
 
@@ -432,9 +406,9 @@ Chor Police is not another discount mechanic. It inverts the relationship betwee
 
 ---
 
-## 15. MVP Scope
+## 13. MVP Scope
 
-**MVP in one sentence:** A 10-screen mobile web prototype that takes a user from name entry to a personalised downloadable FIR card, with Chor Police framing on every screen.
+**MVP in one sentence:** A 9-screen Next.js prototype that takes a user from name entry to a personalised downloadable FIR card, with Chor Police framing on every screen — FIR revealed as a reward after the tracking chase completes.
 
 ### Hypotheses with Kill Signals
 
@@ -451,15 +425,17 @@ Kill condition: if the evaluator's first response to the FIR card is "what is th
 
 | Feature | Description | Priority |
 |---------|-------------|----------|
-| 10-screen flow | All screens interactive, user-driven | P0 |
-| Personalised FIR card | Name, product, rider, time, verdict | P0 |
-| PNG download | html2canvas, 3x resolution | P0 |
+| 9-screen flow | All screens interactive, back button on each | P0 |
+| Personalised FIR card | Name, product, rider, time, charge, verdict — no price | P0 |
+| PNG download | html2canvas, 3x resolution, inline on tracking screen | P0 |
 | Zepto brand system | #8B2FC9 purple, #FF2D55 hot pink, DM Sans | P0 |
-| Hinglish copy | All 10 screens | P0 |
-| 5-state tracking | Tap-through 800m → PAKAD LIYA | P0 |
+| Hinglish body copy, English CTAs | Aanya's voice without friction | P0 |
+| 5-state tracking | Auto-advance (3500ms per state), Skip button for demos | P0 |
+| Multi-item cart | Per-product +/- controls, bill summary, sticky View Cart bar | P0 |
 | Craving meter animation | Product detail screen | P1 |
-| Randomised variables | Rider name, delivery time, FIR number | P1 |
-| Time-sensitive verdict | Weekday/weekend/9–11pm logic | P1 |
+| Randomised variables | Rider name, delivery time, FIR number, charge, order time | P1 |
+| Time-sensitive verdict + charge | Weekday/weekend/hour-of-day logic | P1 |
+| Locked FIR preview on confirmed screen | Blurred skeleton, unlocks after tracking completes | P1 |
 
 ### What We Left Out and Why
 
@@ -470,32 +446,11 @@ Kill condition: if the evaluator's first response to the FIR card is "what is th
 | Multi-city copy | Mumbai only. Localisation cost vs. demo value | V2 |
 | Category reusability (Maggi, chips) | Ice cream is the brief; other categories are extension play | V2 |
 | Share to WhatsApp/Instagram native | html2canvas download + screenshot is sufficient for demo | V2 |
-| Sound / haptics | Beyond HTML prototype scope | V2 |
+| Sound / haptics | Out of scope for prototype | V2 |
 
 ---
 
-## 16. Success Metrics
-
-| Metric | What It Measures | Target | Kill Signal | Hypothesis |
-|--------|-----------------|--------|-------------|------------|
-| Flow completion rate | Do users make it from name entry to FIR card? | > 80% | < 50% | H1 |
-| FIR card download rate | Is the output share-worthy? | > 35% | < 10% | H2 |
-| Brief criteria pass rate | Do evaluators check all 4 judging boxes? | 4/4 | < 3/4 | H4 |
-| Brand recognition (no logo) | Is it unmistakably Zepto? | 100% on evalution | < 80% | H4 |
-
-*Note: These are prototype evaluation metrics, not live product metrics. Live metrics framework is in §12.*
-
----
-
-## 17. Trade-offs and Limitations
-
-### What This Does Not Solve
-
-| Area | Why Out of Scope |
-|------|-----------------|
-| App switching at moment of desire | Chor Police can change the memory; it cannot intercept the instinct from yesterday. Requires time + repetition. |
-| Catalogue depth gap | 5,000 vs 30,000 SKUs is a sourcing and ops problem, not a campaign problem |
-| Tier-2 presence | Geographic strategy, not addressable here |
+## 14. Trade-offs
 
 ### Known Trade-offs
 
@@ -505,15 +460,9 @@ Kill condition: if the evaluator's first response to the FIR card is "what is th
 | Web prototype vs. native app | Native interactions, real push notifications | Brief allows web prototype; maximises shareability of demo |
 | Hinglish throughout vs. bilingual option | Non-Hindi speakers (South India) | Aanya is the target; Mumbai metro is the launch market |
 
-### Dependency Risks
-
-- html2canvas may fail on certain browsers/devices — screenshot fallback copy included on FIR card screen
-- Google Fonts CDN dependency — if fonts fail to load, Inter fallback maintains readability
-- Evaluator must demo on mobile or mobile-responsive browser — prototype is mobile-first 390px
-
 ---
 
-## 18. Open Questions
+## 15. Open Questions
 
 | Question | Owner | Due date | Status |
 |---|---|---|---|
@@ -524,11 +473,11 @@ Kill condition: if the evaluator's first response to the FIR card is "what is th
 
 ---
 
-## 19. Rollout Plan
+## 16. Rollout Plan
 
 **Approach:** Design brief submission — prototype demo + strategy memo + screen recording.
 
-- **Prototype:** Complete 10-screen `index.html` shareable file
+- **Prototype:** Complete 10-screen Next.js app, deployed on Vercel
 - **Strategy memo:** One-page `docs/strategy-memo.md` — opinionated, one mechanic, no hedging
 - **Screen recording:** 30 seconds, landscape, recorded on phone running the prototype in mobile browser
 - **Submission:** 23 March, 11:59 PM (brief deadline)
@@ -540,7 +489,7 @@ If selected and moved to production:
 
 ---
 
-## 20. Risks
+## 17. Risks
 
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
@@ -549,10 +498,12 @@ If selected and moved to production:
 | Brand system doesn't read as Zepto without logo | Low | High | Hot pink CTAs + deep purple bg are unmistakable |
 | Copy feels forced/cringey rather than natural Hinglish | Medium | Medium | Run copy by 1–2 native Hinglish speakers before submission |
 | Brief evaluators prefer a safer, less absurdist mechanic | Low | Medium | Strategy memo makes the opinionated case — this is the right call |
+| Google Fonts CDN fails to load | Low | Low | Inter fallback maintains readability |
+| Evaluator demos on desktop instead of mobile | Medium | Medium | Prototype is mobile-first 390px — test on mobile only |
 
 ---
 
-## 21. The Moonshot (Phase 2+)
+## 18. The Moonshot (Phase 2+)
 
 Chor Police starts as an ice cream campaign. Its real potential is as Zepto's permanent brand language for every impulse category.
 
@@ -577,5 +528,5 @@ Zepto owns the only brand language in Indian QC that makes speed emotional. Ever
 
 ---
 
-*Research sources: `~/zepto-scream-research.md` — 25+ sources, full citations in §11*
+*Research sources: `~/zepto-scream-research.md` — 25+ sources, full citations available*
 *Last updated: 2026-05-25 | Author: Gopal Singh Lora*

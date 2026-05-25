@@ -1,22 +1,43 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { loadState, type Product } from '@/lib/state'
+import { loadState, saveState, cartTotal, type CartItem } from '@/lib/state'
 
 export default function CartPage() {
   const router = useRouter()
-  const [product, setProduct] = useState<Product | null>(null)
+  const [cart, setCart] = useState<CartItem[]>([])
 
   useEffect(() => {
     const state = loadState()
-    if (!state.selectedProduct) {
+    if (!state.cart || state.cart.length === 0) {
       router.replace('/listing')
       return
     }
-    setProduct(state.selectedProduct)
+    setCart(state.cart)
   }, [router])
 
-  if (!product) return null
+  function updateQty(productName: string, delta: number) {
+    setCart(prev => {
+      const next = prev
+        .map(item =>
+          item.product.name === productName
+            ? { ...item, quantity: item.quantity + delta }
+            : item
+        )
+        .filter(item => item.quantity > 0)
+      saveState({ cart: next })
+      return next
+    })
+  }
+
+  if (cart.length === 0) return null
+
+  const total = cartTotal(cart)
+
+  function proceedToPay() {
+    saveState({ selectedProduct: cart[0].product })
+    router.push('/payment')
+  }
 
   return (
     <div className="mobile-container bg-background flex flex-col">
@@ -25,80 +46,90 @@ export default function CartPage() {
         <button type="button" onClick={() => router.back()} className="text-on-surface p-1">
           ←
         </button>
-        <div className="text-on-surface font-bold text-base">🗂️ Evidence Secured</div>
+        <div className="text-on-surface font-bold text-base flex-1">Your Cart</div>
+        <div className="text-on-surface-variant text-xs font-mono">
+          {cart.reduce((s, i) => s + i.quantity, 0)} items
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="flex-1 px-4 pt-2">
-        {/* Receipt card */}
-        <div className="rounded-2xl overflow-hidden mb-4">
-          {/* Receipt header band */}
-          <div className="bg-surface-container-high px-5 py-4">
-            <div className="text-on-surface-variant text-xs font-mono tracking-widest uppercase mb-1">
-              Case File
-            </div>
-            <div className="text-on-surface text-base font-black">Order Summary</div>
-          </div>
+      {/* Items */}
+      <div className="flex-1 px-4 pt-2 overflow-y-auto">
+        <div className="space-y-3 mb-4">
+          {cart.map((item) => (
+            <div key={item.product.name} className="glass-panel rounded-2xl p-4 flex items-center gap-3">
+              {/* Image */}
+              <div className="w-16 h-16 flex-shrink-0">
+                <img
+                  src={item.product.image}
+                  alt={item.product.name}
+                  className="w-full h-full object-contain"
+                />
+              </div>
 
-          {/* Jagged top of cream area */}
-          <div
-            className="h-4 bg-surface-container-high"
-            style={{
-              borderBottom: '16px solid #F5F0E8',
-              clipPath:
-                'polygon(0% 0%,2% 100%,4% 0%,6% 100%,8% 0%,10% 100%,12% 0%,14% 100%,16% 0%,18% 100%,20% 0%,22% 100%,24% 0%,26% 100%,28% 0%,30% 100%,32% 0%,34% 100%,36% 0%,38% 100%,40% 0%,42% 100%,44% 0%,46% 100%,48% 0%,50% 100%,52% 0%,54% 100%,56% 0%,58% 100%,60% 0%,62% 100%,64% 0%,66% 100%,68% 0%,70% 100%,72% 0%,74% 100%,76% 0%,78% 100%,80% 0%,82% 100%,84% 0%,86% 100%,88% 0%,90% 100%,92% 0%,94% 100%,96% 0%,98% 100%,100% 0%,100% 0%,0% 0%)',
-            }}
-          />
-
-          {/* Cream body */}
-          <div className="px-5 py-5" style={{ background: '#F5F0E8' }}>
-            {/* Product row */}
-            <div className="flex items-center gap-3 mb-5">
-              <div className="text-4xl">{product.emoji}</div>
-              <div className="flex-1">
-                <div className="font-bold text-sm" style={{ color: '#3b0900' }}>
-                  {product.name}
+              {/* Info */}
+              <div className="flex-1 min-w-0">
+                <div className="text-on-surface font-bold text-sm leading-tight">
+                  {item.product.name}
                 </div>
-                <div className="text-xs mt-0.5" style={{ color: '#5d1900' }}>
-                  {product.brand} · 1 unit
-                </div>
+                <div className="text-on-surface-variant text-xs mt-0.5">{item.product.brand}</div>
+                <div className="text-on-surface font-bold text-sm mt-1">{item.product.price}</div>
               </div>
-              <div className="font-bold" style={{ color: '#3b0900' }}>{product.price}</div>
-            </div>
 
-            {/* Totals */}
-            <div className="border-t pt-4 space-y-2.5" style={{ borderColor: 'rgba(59,9,0,0.15)' }}>
-              <div className="flex justify-between text-sm">
-                <span style={{ color: '#5d1900' }}>Item total</span>
-                <span className="font-semibold" style={{ color: '#3b0900' }}>{product.price}</span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span style={{ color: '#5d1900' }}>Delivery fee</span>
-                <span className="font-bold text-success">FREE</span>
-              </div>
+              {/* Quantity control */}
               <div
-                className="flex justify-between pt-3 font-black text-base border-t"
-                style={{ borderColor: 'rgba(59,9,0,0.15)', color: '#3b0900' }}
+                className="flex items-center rounded-xl overflow-hidden flex-shrink-0"
+                style={{ background: '#FF2D55' }}
               >
-                <span>Total</span>
-                <span>{product.price}</span>
+                <button
+                  type="button"
+                  className="text-white font-bold px-3 py-2 text-lg leading-none"
+                  onClick={() => updateQty(item.product.name, -1)}
+                >
+                  −
+                </button>
+                <span className="text-white font-black text-sm px-1 min-w-[24px] text-center">
+                  {item.quantity}
+                </span>
+                <button
+                  type="button"
+                  className="text-white font-bold px-3 py-2 text-lg leading-none"
+                  onClick={() => updateQty(item.product.name, 1)}
+                >
+                  +
+                </button>
               </div>
             </div>
-          </div>
-
-          {/* Jagged bottom */}
-          <div
-            style={{
-              height: '16px',
-              background: '#F5F0E8',
-              clipPath:
-                'polygon(0% 0%,2% 100%,4% 0%,6% 100%,8% 0%,10% 100%,12% 0%,14% 100%,16% 0%,18% 100%,20% 0%,22% 100%,24% 0%,26% 100%,28% 0%,30% 100%,32% 0%,34% 100%,36% 0%,38% 100%,40% 0%,42% 100%,44% 0%,46% 100%,48% 0%,50% 100%,52% 0%,54% 100%,56% 0%,58% 100%,60% 0%,62% 100%,64% 0%,66% 100%,68% 0%,70% 100%,72% 0%,74% 100%,76% 0%,78% 100%,80% 0%,82% 100%,84% 0%,86% 100%,88% 0%,90% 100%,92% 0%,94% 100%,96% 0%,98% 100%,100% 0%)',
-            }}
-          />
+          ))}
         </div>
 
-        {/* Status badge */}
-        <div className="glass-panel rounded-xl px-4 py-3">
+        {/* Bill summary */}
+        <div className="glass-panel rounded-2xl p-4 mb-4">
+          <div className="text-on-surface font-bold text-sm mb-3">Bill Summary</div>
+          {cart.map(item => (
+            <div key={item.product.name} className="flex justify-between text-sm mb-2">
+              <span className="text-on-surface-variant">
+                {item.product.name} × {item.quantity}
+              </span>
+              <span className="text-on-surface font-medium">
+                ₹{parseInt(item.product.price.replace('₹', '')) * item.quantity}
+              </span>
+            </div>
+          ))}
+          <div className="flex justify-between text-sm mb-3">
+            <span className="text-on-surface-variant">Delivery fee</span>
+            <span className="font-bold text-success">FREE</span>
+          </div>
+          <div
+            className="flex justify-between font-black text-base pt-3"
+            style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}
+          >
+            <span className="text-on-surface">Total</span>
+            <span className="text-on-surface">₹{total}</span>
+          </div>
+        </div>
+
+        {/* Status note */}
+        <div className="glass-panel rounded-xl px-4 py-3 mb-2">
           <div className="text-on-surface-variant text-xs font-mono text-center">
             Evidence secured. Dispatch ke liye tayaar.
           </div>
@@ -109,11 +140,11 @@ export default function CartPage() {
       <div className="px-4 pb-6 pt-4">
         <button
           type="button"
-          onClick={() => router.push('/payment')}
-          className="btn-primary w-full text-on-primary-container font-black text-sm tracking-widest py-4 rounded-2xl"
-          style={{ background: '#ff5167' }}
+          onClick={proceedToPay}
+          className="btn-primary w-full text-on-primary-container font-black text-sm tracking-widest py-4 rounded-full"
+          style={{ background: '#FF2D55' }}
         >
-          PROCEED KAR →
+          PROCEED TO PAY → ₹{total}
         </button>
       </div>
     </div>
