@@ -8,9 +8,15 @@ export default function FIRPage() {
   const firRef = useRef<HTMLDivElement>(null)
   const [state, setState] = useState<AppState | null>(null)
   const [downloading, setDownloading] = useState(false)
+  const [today, setToday] = useState('')
 
   useEffect(() => {
     setState(loadState())
+    setToday(new Date().toLocaleDateString('en-IN', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    }))
   }, [])
 
   async function downloadPNG() {
@@ -47,11 +53,6 @@ export default function FIRPage() {
   if (!state) return null
 
   const product = state.selectedProduct
-  const today = new Date().toLocaleDateString('en-IN', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-  })
 
   return (
     <div className="mobile-container bg-background flex flex-col">

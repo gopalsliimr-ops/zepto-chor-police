@@ -6,15 +6,16 @@ import { loadState } from '@/lib/state'
 export default function NotificationPage() {
   const router = useRouter()
   const [userName, setUserName] = useState('Tum')
+  const [timeStr, setTimeStr] = useState('9:41')
+  const [dateStr, setDateStr] = useState('Monday, 25 May')
 
   useEffect(() => {
     const state = loadState()
     if (state.userName) setUserName(state.userName)
+    const now = new Date()
+    setTimeStr(now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false }))
+    setDateStr(now.toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long' }))
   }, [])
-
-  const now = new Date()
-  const timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false })
-  const dateStr = now.toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long' })
 
   return (
     <div
