@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { loadState, saveState, TRACKING_STATES, type AppState } from '@/lib/state'
+import { loadState, saveState, resetJourney, TRACKING_STATES, type AppState } from '@/lib/state'
 
 const RIDER_POSITIONS = [
   { cx: 65,  cy: 165 },
@@ -340,7 +340,7 @@ export default function TrackingPage() {
             </button>
             <button
               type="button"
-              onClick={() => router.push('/')}
+              onClick={() => { resetJourney(); router.push('/') }}
               className="w-full text-on-surface-variant text-sm font-mono py-2 text-center"
             >
               Catch Another Craving →

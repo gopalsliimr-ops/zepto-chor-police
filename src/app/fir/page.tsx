@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { loadState, type AppState } from '@/lib/state'
+import { loadState, resetJourney, type AppState } from '@/lib/state'
 
 export default function FIRPage() {
   const router = useRouter()
@@ -225,7 +225,7 @@ export default function FIRPage() {
         </button>
         <button
           type="button"
-          onClick={() => router.push('/')}
+          onClick={() => { resetJourney(); router.push('/') }}
           className="w-full text-on-surface-variant text-sm font-mono py-2 text-center"
         >
           Catch Another Craving →

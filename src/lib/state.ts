@@ -121,6 +121,12 @@ export function saveState(state: Partial<AppState>): void {
   localStorage.setItem(STATE_KEY, JSON.stringify({ ...existing, ...state }))
 }
 
+export function resetJourney(): void {
+  if (typeof window === 'undefined') return
+  const { userName } = loadState()
+  localStorage.setItem(STATE_KEY, JSON.stringify({ ...emptyState(), userName }))
+}
+
 export function loadState(): AppState {
   if (typeof window === 'undefined') return emptyState()
   try {
